@@ -1,0 +1,5 @@
+Time	 pair_harmonic_sum	441.917	25
+Time	 pair_harmonic_sum_opt	62.793	25
+sum: 0.496224
+sum2: 0.996745
+Cores: 25

@@ -1,0 +1,1 @@
+/usr/bin/c++   -fopenmp -g -Wl,-Bsymbolic-functions   -pg CMakeFiles/tst.dir/tst/main.cpp.o CMakeFiles/tst.dir/tst/verlet-test.cpp.o  -o tst  lib/libgtestd.a libmain_lib.a /usr/lib/x86_64-linux-gnu/libmpichcxx.so /usr/lib/x86_64-linux-gnu/libmpich.so 

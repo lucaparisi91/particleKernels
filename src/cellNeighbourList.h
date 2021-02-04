@@ -32,8 +32,6 @@ class simpleCellNeighbourList
     void updateList(const double * positions, size_t N, int iStart, int iEnd); // inserts particle in the cell neighbour list
 
 
-
-
     ~simpleCellNeighbourList();
 
     void sanityCheck();

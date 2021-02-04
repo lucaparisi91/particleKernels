@@ -61,20 +61,11 @@ inline int gridIndexPerDimensionUnRestrictedToBox( double x , double lBox, int n
 
 };
 
-
-
-
-
-
 int gridIndexPerDimension( double x , double lBox, int nCell)
 {
     return gridIndexPerDimensionRestrictedToBox(x,lBox,nCell);
 
 };
-
-
-
-
 
  
 
@@ -260,7 +251,7 @@ dimensions(nCells_.size() ),
 policy(policy_),
 nCells(nCells_),
 lBox(lBox_),
-periodic(false),
+periodic(true),
 maxNParticles(10000)
 {
     nCellsTotal=1;
@@ -375,20 +366,6 @@ maxNParticles(10000)
                                             displacementCellNeighbours[cellIndex][iNeighbour + 2*nNeighboursPerCellMax]=lBox[2];
                                         }
 
-                                        
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -410,7 +387,7 @@ maxNParticles(10000)
 
                                             if (
                                                 (iii>=0 and iii<nCells[0] ) and(jjj>=0 and jjj<nCells[1] ) and 
-                                                (kk>=0 and kkk<nCells[2] ) 
+                                                (kkk>=0 and kkk<nCells[2] ) 
                                                 ) 
                                             {
 
@@ -528,13 +505,81 @@ void simpleCellNeighbourList::sanityCheck()
 {
     assert(nCellsTotal == cells.size() );
 
+    int nMaxNeighbours=std::pow(3,dimensions);
+
     for (int i=0;i<cells.size();i++)
     {
+
+        std::array<int,3> mIndexCell;
+         indicesFromIndexFortranStorage<3>(mIndexCell.data(), i, nCells.data() );
+
         assert(nNeighboursPerCell[i]<=nNeighboursPerCellMax);
+
+        std::array<int,3> nWrapped{0,0,0};
+        std::array<int,3> nWrappedExpected{0,0,0};
+
+        if (periodic)
+        {
+            for (int d=0;d<dimensions;d++)
+            {
+                if ( mIndexCell[d]==0  )
+                {
+                    nWrappedExpected[d]+=std::pow(3,dimensions-1);
+                }
+
+                if ( mIndexCell[d]==nCells[d] -1  )
+                {
+                    nWrappedExpected[d]+=std::pow(3,dimensions-1);
+                }
+
+
+
+            }
+
+            assert(nNeighboursPerCell[i]==std::pow(3,dimensions));
+        }
 
         for (int ii=0;ii<nNeighboursPerCell[i];i++)
         {
+            
             int cellNeighbour=indexCellNeighbours[i][ii];
+
+
+            if ( dimensions == 3 and periodic )
+            {
+                std::array<int,3> mIndexCellN;
+
+                 indicesFromIndexFortranStorage<3>(mIndexCellN.data(), cellNeighbour, nCells.data() );
+
+                 for (int d=0;d<dimensions;d++)
+                 {
+                     if ( ( mIndexCellN[d] == (nCells[d] - 1) ) and
+                        mIndexCell[d] == 0
+                       )
+                     {
+
+                         assert(displacementCellNeighbours[i][ii + d*nMaxNeighbours] == -lBox[d]);
+
+                         nWrapped[d]+=1;
+                     }
+
+                     if ( ( mIndexCell[d] == nCells[d] - 1 ) and
+                        mIndexCellN[d] == 0
+                       )
+                     {
+                         assert(displacementCellNeighbours[i][ii + d*nMaxNeighbours] == lBox[d]);
+                         nWrapped[d]+=1;
+                     }
+
+
+
+                 }
+
+            }
+
+           
+           
+
             
 
             // check if the current cell is listed in the neighbour cells list of cellNeighbour
@@ -559,6 +604,13 @@ void simpleCellNeighbourList::sanityCheck()
 
         }
 
+
+
+         for (int d=0;d<dimensions;d++)
+            {
+                
+                assert(nWrappedExpected[d]==nWrapped[d]);
+            }
 
 
     }

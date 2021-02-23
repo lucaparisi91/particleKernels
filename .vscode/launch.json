@@ -1,0 +1,13 @@
+{
+    "configurations":[    
+    {
+        "name": "Test launch",
+        "type": "cppdbg",
+        "request": "launch",
+        "args" : ["--gtest_filter=linkedCell.*"],
+        "program": "${workspaceFolder}/build/tst",
+        "cwd": "${workspaceFolder}/build"
+    }
+    
+    ]
+}

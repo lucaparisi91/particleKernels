@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o"
+  "CMakeFiles/main_lib.dir/src/lattice.cpp.o"
+  "CMakeFiles/main_lib.dir/src/particleData.cpp.o"
   "CMakeFiles/main_lib.dir/src/randomKernel.cpp.o"
   "CMakeFiles/main_lib.dir/src/timers.cpp.o"
+  "CMakeFiles/main_lib.dir/src/utils.cpp.o"
   "libmain_lib.a"
   "libmain_lib.pdb"
 )

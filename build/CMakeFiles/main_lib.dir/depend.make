@@ -5,9 +5,21 @@ CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o: ../src/cellNeighbourList.cp
 CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o: ../src/cellNeighbourList.h
 CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o: ../src/listKernels.hpp
 
+CMakeFiles/main_lib.dir/src/lattice.cpp.o: ../src/lattice.cpp
+CMakeFiles/main_lib.dir/src/lattice.cpp.o: ../src/lattice.h
+
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/cellData.h
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/lattice.h
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/particleData.cpp
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/particleData.h
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/utils.h
+
 CMakeFiles/main_lib.dir/src/randomKernel.cpp.o: ../src/randomKernel.cpp
 CMakeFiles/main_lib.dir/src/randomKernel.cpp.o: ../src/randomKernel.h
 
 CMakeFiles/main_lib.dir/src/timers.cpp.o: ../src/timers.cpp
 CMakeFiles/main_lib.dir/src/timers.cpp.o: ../src/timers.h
+
+CMakeFiles/main_lib.dir/src/utils.cpp.o: ../src/utils.cpp
+CMakeFiles/main_lib.dir/src/utils.cpp.o: ../src/utils.h
 

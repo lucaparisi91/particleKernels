@@ -96,11 +96,53 @@ CMakeFiles/main_lib.dir/src/timers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/timers.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/timers.cpp -o CMakeFiles/main_lib.dir/src/timers.cpp.s
 
+CMakeFiles/main_lib.dir/src/lattice.cpp.o: CMakeFiles/main_lib.dir/flags.make
+CMakeFiles/main_lib.dir/src/lattice.cpp.o: ../src/lattice.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main_lib.dir/src/lattice.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/lattice.cpp.o -c /home/luca/source/particleKernels/src/lattice.cpp
+
+CMakeFiles/main_lib.dir/src/lattice.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/lattice.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/lattice.cpp > CMakeFiles/main_lib.dir/src/lattice.cpp.i
+
+CMakeFiles/main_lib.dir/src/lattice.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/lattice.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/lattice.cpp -o CMakeFiles/main_lib.dir/src/lattice.cpp.s
+
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: CMakeFiles/main_lib.dir/flags.make
+CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/particleData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main_lib.dir/src/particleData.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/particleData.cpp.o -c /home/luca/source/particleKernels/src/particleData.cpp
+
+CMakeFiles/main_lib.dir/src/particleData.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/particleData.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/particleData.cpp > CMakeFiles/main_lib.dir/src/particleData.cpp.i
+
+CMakeFiles/main_lib.dir/src/particleData.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/particleData.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/particleData.cpp -o CMakeFiles/main_lib.dir/src/particleData.cpp.s
+
+CMakeFiles/main_lib.dir/src/utils.cpp.o: CMakeFiles/main_lib.dir/flags.make
+CMakeFiles/main_lib.dir/src/utils.cpp.o: ../src/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main_lib.dir/src/utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/utils.cpp.o -c /home/luca/source/particleKernels/src/utils.cpp
+
+CMakeFiles/main_lib.dir/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/utils.cpp > CMakeFiles/main_lib.dir/src/utils.cpp.i
+
+CMakeFiles/main_lib.dir/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/utils.cpp -o CMakeFiles/main_lib.dir/src/utils.cpp.s
+
 # Object files for target main_lib
 main_lib_OBJECTS = \
 "CMakeFiles/main_lib.dir/src/randomKernel.cpp.o" \
 "CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o" \
-"CMakeFiles/main_lib.dir/src/timers.cpp.o"
+"CMakeFiles/main_lib.dir/src/timers.cpp.o" \
+"CMakeFiles/main_lib.dir/src/lattice.cpp.o" \
+"CMakeFiles/main_lib.dir/src/particleData.cpp.o" \
+"CMakeFiles/main_lib.dir/src/utils.cpp.o"
 
 # External object files for target main_lib
 main_lib_EXTERNAL_OBJECTS =
@@ -108,9 +150,12 @@ main_lib_EXTERNAL_OBJECTS =
 libmain_lib.a: CMakeFiles/main_lib.dir/src/randomKernel.cpp.o
 libmain_lib.a: CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o
 libmain_lib.a: CMakeFiles/main_lib.dir/src/timers.cpp.o
+libmain_lib.a: CMakeFiles/main_lib.dir/src/lattice.cpp.o
+libmain_lib.a: CMakeFiles/main_lib.dir/src/particleData.cpp.o
+libmain_lib.a: CMakeFiles/main_lib.dir/src/utils.cpp.o
 libmain_lib.a: CMakeFiles/main_lib.dir/build.make
 libmain_lib.a: CMakeFiles/main_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libmain_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libmain_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/main_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_lib.dir/link.txt --verbose=$(VERBOSE)
 

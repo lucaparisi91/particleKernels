@@ -274,6 +274,33 @@ src/cellNeighbourList.cpp.s:
 	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.s
 .PHONY : src/cellNeighbourList.cpp.s
 
+src/lattice.o: src/lattice.cpp.o
+
+.PHONY : src/lattice.o
+
+# target to build an object file
+src/lattice.cpp.o:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/lattice.cpp.o
+.PHONY : src/lattice.cpp.o
+
+src/lattice.i: src/lattice.cpp.i
+
+.PHONY : src/lattice.i
+
+# target to preprocess a source file
+src/lattice.cpp.i:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/lattice.cpp.i
+.PHONY : src/lattice.cpp.i
+
+src/lattice.s: src/lattice.cpp.s
+
+.PHONY : src/lattice.s
+
+# target to generate assembly for a file
+src/lattice.cpp.s:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/lattice.cpp.s
+.PHONY : src/lattice.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -300,6 +327,33 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/particleData.o: src/particleData.cpp.o
+
+.PHONY : src/particleData.o
+
+# target to build an object file
+src/particleData.cpp.o:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/particleData.cpp.o
+.PHONY : src/particleData.cpp.o
+
+src/particleData.i: src/particleData.cpp.i
+
+.PHONY : src/particleData.i
+
+# target to preprocess a source file
+src/particleData.cpp.i:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/particleData.cpp.i
+.PHONY : src/particleData.cpp.i
+
+src/particleData.s: src/particleData.cpp.s
+
+.PHONY : src/particleData.s
+
+# target to generate assembly for a file
+src/particleData.cpp.s:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/particleData.cpp.s
+.PHONY : src/particleData.cpp.s
 
 src/randomKernel.o: src/randomKernel.cpp.o
 
@@ -354,6 +408,60 @@ src/timers.s: src/timers.cpp.s
 src/timers.cpp.s:
 	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/timers.cpp.s
 .PHONY : src/timers.cpp.s
+
+src/utils.o: src/utils.cpp.o
+
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
+
+tst/linkedCell.o: tst/linkedCell.cpp.o
+
+.PHONY : tst/linkedCell.o
+
+# target to build an object file
+tst/linkedCell.cpp.o:
+	$(MAKE) -f CMakeFiles/tst.dir/build.make CMakeFiles/tst.dir/tst/linkedCell.cpp.o
+.PHONY : tst/linkedCell.cpp.o
+
+tst/linkedCell.i: tst/linkedCell.cpp.i
+
+.PHONY : tst/linkedCell.i
+
+# target to preprocess a source file
+tst/linkedCell.cpp.i:
+	$(MAKE) -f CMakeFiles/tst.dir/build.make CMakeFiles/tst.dir/tst/linkedCell.cpp.i
+.PHONY : tst/linkedCell.cpp.i
+
+tst/linkedCell.s: tst/linkedCell.cpp.s
+
+.PHONY : tst/linkedCell.s
+
+# target to generate assembly for a file
+tst/linkedCell.cpp.s:
+	$(MAKE) -f CMakeFiles/tst.dir/build.make CMakeFiles/tst.dir/tst/linkedCell.cpp.s
+.PHONY : tst/linkedCell.cpp.s
 
 tst/main.o: tst/main.cpp.o
 
@@ -431,15 +539,27 @@ help:
 	@echo "... src/cellNeighbourList.o"
 	@echo "... src/cellNeighbourList.i"
 	@echo "... src/cellNeighbourList.s"
+	@echo "... src/lattice.o"
+	@echo "... src/lattice.i"
+	@echo "... src/lattice.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/particleData.o"
+	@echo "... src/particleData.i"
+	@echo "... src/particleData.s"
 	@echo "... src/randomKernel.o"
 	@echo "... src/randomKernel.i"
 	@echo "... src/randomKernel.s"
 	@echo "... src/timers.o"
 	@echo "... src/timers.i"
 	@echo "... src/timers.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
+	@echo "... tst/linkedCell.o"
+	@echo "... tst/linkedCell.i"
+	@echo "... tst/linkedCell.s"
 	@echo "... tst/main.o"
 	@echo "... tst/main.i"
 	@echo "... tst/main.s"

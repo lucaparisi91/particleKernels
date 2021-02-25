@@ -1,1 +1,1 @@
-/usr/bin/c++   -fopenmp -g -Wl,-Bsymbolic-functions   -pg CMakeFiles/main.dir/src/main.cpp.o  -o main  libmain_lib.a /usr/lib/x86_64-linux-gnu/libmpichcxx.so /usr/lib/x86_64-linux-gnu/libmpich.so 
+/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc   -qopenmp -O3 -DNDEBUG    -pg CMakeFiles/main.dir/src/main.cpp.o  -o main  libmain_lib.a 

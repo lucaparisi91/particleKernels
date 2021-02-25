@@ -60,41 +60,41 @@ include CMakeFiles/tst.dir/flags.make
 CMakeFiles/tst.dir/tst/main.cpp.o: CMakeFiles/tst.dir/flags.make
 CMakeFiles/tst.dir/tst/main.cpp.o: ../tst/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tst.dir/tst/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tst.dir/tst/main.cpp.o -c /home/luca/source/particleKernels/tst/main.cpp
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tst.dir/tst/main.cpp.o -c /home/luca/source/particleKernels/tst/main.cpp
 
 CMakeFiles/tst.dir/tst/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tst.dir/tst/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/tst/main.cpp > CMakeFiles/tst.dir/tst/main.cpp.i
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/tst/main.cpp > CMakeFiles/tst.dir/tst/main.cpp.i
 
 CMakeFiles/tst.dir/tst/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tst.dir/tst/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/tst/main.cpp -o CMakeFiles/tst.dir/tst/main.cpp.s
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/tst/main.cpp -o CMakeFiles/tst.dir/tst/main.cpp.s
 
 CMakeFiles/tst.dir/tst/verlet-test.cpp.o: CMakeFiles/tst.dir/flags.make
 CMakeFiles/tst.dir/tst/verlet-test.cpp.o: ../tst/verlet-test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tst.dir/tst/verlet-test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tst.dir/tst/verlet-test.cpp.o -c /home/luca/source/particleKernels/tst/verlet-test.cpp
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tst.dir/tst/verlet-test.cpp.o -c /home/luca/source/particleKernels/tst/verlet-test.cpp
 
 CMakeFiles/tst.dir/tst/verlet-test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tst.dir/tst/verlet-test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/tst/verlet-test.cpp > CMakeFiles/tst.dir/tst/verlet-test.cpp.i
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/tst/verlet-test.cpp > CMakeFiles/tst.dir/tst/verlet-test.cpp.i
 
 CMakeFiles/tst.dir/tst/verlet-test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tst.dir/tst/verlet-test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/tst/verlet-test.cpp -o CMakeFiles/tst.dir/tst/verlet-test.cpp.s
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/tst/verlet-test.cpp -o CMakeFiles/tst.dir/tst/verlet-test.cpp.s
 
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: CMakeFiles/tst.dir/flags.make
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../tst/linkedCell.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tst.dir/tst/linkedCell.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tst.dir/tst/linkedCell.cpp.o -c /home/luca/source/particleKernels/tst/linkedCell.cpp
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tst.dir/tst/linkedCell.cpp.o -c /home/luca/source/particleKernels/tst/linkedCell.cpp
 
 CMakeFiles/tst.dir/tst/linkedCell.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tst.dir/tst/linkedCell.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/tst/linkedCell.cpp > CMakeFiles/tst.dir/tst/linkedCell.cpp.i
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/tst/linkedCell.cpp > CMakeFiles/tst.dir/tst/linkedCell.cpp.i
 
 CMakeFiles/tst.dir/tst/linkedCell.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tst.dir/tst/linkedCell.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/tst/linkedCell.cpp -o CMakeFiles/tst.dir/tst/linkedCell.cpp.s
+	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/tst/linkedCell.cpp -o CMakeFiles/tst.dir/tst/linkedCell.cpp.s
 
 # Object files for target tst
 tst_OBJECTS = \
@@ -109,10 +109,8 @@ tst: CMakeFiles/tst.dir/tst/main.cpp.o
 tst: CMakeFiles/tst.dir/tst/verlet-test.cpp.o
 tst: CMakeFiles/tst.dir/tst/linkedCell.cpp.o
 tst: CMakeFiles/tst.dir/build.make
-tst: lib/libgtestd.a
+tst: lib/libgtest.a
 tst: libmain_lib.a
-tst: /usr/lib/x86_64-linux-gnu/libmpichcxx.so
-tst: /usr/lib/x86_64-linux-gnu/libmpich.so
 tst: CMakeFiles/tst.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable tst"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tst.dir/link.txt --verbose=$(VERBOSE)

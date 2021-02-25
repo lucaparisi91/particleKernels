@@ -24,6 +24,7 @@ CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../external/googletest/googletest/inclu
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../src/cellData.h
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../src/lattice.h
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../src/particleData.h
+CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../src/twoBodyDistances.hpp
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../src/utils.h
 CMakeFiles/tst.dir/tst/linkedCell.cpp.o: ../tst/linkedCell.cpp
 

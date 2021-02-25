@@ -157,6 +157,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named timers
+
+# Build rule for target.
+timers: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 timers
+.PHONY : timers
+
+# fast build rule for target.
+timers/fast:
+	$(MAKE) -f CMakeFiles/timers.dir/build.make CMakeFiles/timers.dir/build
+.PHONY : timers/fast
+
+#=============================================================================
 # Target rules for targets named tst
 
 # Build rule for target.
@@ -436,6 +449,33 @@ src/utils.cpp.s:
 	$(MAKE) -f CMakeFiles/main_lib.dir/build.make CMakeFiles/main_lib.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
+timers/main.o: timers/main.cpp.o
+
+.PHONY : timers/main.o
+
+# target to build an object file
+timers/main.cpp.o:
+	$(MAKE) -f CMakeFiles/timers.dir/build.make CMakeFiles/timers.dir/timers/main.cpp.o
+.PHONY : timers/main.cpp.o
+
+timers/main.i: timers/main.cpp.i
+
+.PHONY : timers/main.i
+
+# target to preprocess a source file
+timers/main.cpp.i:
+	$(MAKE) -f CMakeFiles/timers.dir/build.make CMakeFiles/timers.dir/timers/main.cpp.i
+.PHONY : timers/main.cpp.i
+
+timers/main.s: timers/main.cpp.s
+
+.PHONY : timers/main.s
+
+# target to generate assembly for a file
+timers/main.cpp.s:
+	$(MAKE) -f CMakeFiles/timers.dir/build.make CMakeFiles/timers.dir/timers/main.cpp.s
+.PHONY : timers/main.cpp.s
+
 tst/linkedCell.o: tst/linkedCell.cpp.o
 
 .PHONY : tst/linkedCell.o
@@ -529,6 +569,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... timers"
 	@echo "... tst"
 	@echo "... main"
 	@echo "... main_lib"
@@ -557,6 +598,9 @@ help:
 	@echo "... src/utils.o"
 	@echo "... src/utils.i"
 	@echo "... src/utils.s"
+	@echo "... timers/main.o"
+	@echo "... timers/main.i"
+	@echo "... timers/main.s"
 	@echo "... tst/linkedCell.o"
 	@echo "... tst/linkedCell.i"
 	@echo "... tst/linkedCell.s"

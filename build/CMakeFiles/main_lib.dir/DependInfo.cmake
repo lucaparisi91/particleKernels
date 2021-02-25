@@ -11,12 +11,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/luca/source/particleKernels/src/timers.cpp" "/home/luca/source/particleKernels/build/CMakeFiles/main_lib.dir/src/timers.cpp.o"
   "/home/luca/source/particleKernels/src/utils.cpp" "/home/luca/source/particleKernels/build/CMakeFiles/main_lib.dir/src/utils.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Intel")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
-  "/usr/include/x86_64-linux-gnu/mpich"
   )
 
 # Targets to which this target links.

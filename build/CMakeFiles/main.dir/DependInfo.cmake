@@ -6,12 +6,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/luca/source/particleKernels/src/main.cpp" "/home/luca/source/particleKernels/build/CMakeFiles/main.dir/src/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Intel")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
-  "/usr/include/x86_64-linux-gnu/mpich"
   )
 
 # Targets to which this target links.

@@ -1,0 +1,1 @@
+/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc   -qopenmp -O3 -DNDEBUG    -pg CMakeFiles/timers.dir/timers/main.cpp.o  -o timers  lib/libgtest.a libmain_lib.a 

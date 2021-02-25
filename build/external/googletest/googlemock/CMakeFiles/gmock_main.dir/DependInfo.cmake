@@ -6,11 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/luca/source/particleKernels/external/googletest/googlemock/src/gmock_main.cc" "/home/luca/source/particleKernels/build/external/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Intel")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/include/x86_64-linux-gnu/mpich"
   "../external/googletest/googlemock/include"
   "../external/googletest/googlemock"
   "../external/googletest/googletest/include"

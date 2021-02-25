@@ -66,18 +66,12 @@ void particleDataIndex::list(const Real * positions,int iStart,int iEnd,int N)
         {
         for (int i=0;i<N;i++) 
         {
-
+            
             size_t index = currentLattice.index(
                 positions[i],
                 positions[i+N],
                 positions[i+2*N]
-                
-                //utils::restrictToBox( positions[i], left[0], lBox[0] , lBoxInverse[0] ),
-                //utils::restrictToBox( positions[i + N], left[0], lBox[0] , lBoxInverse[0] ),
-                //utils::restrictToBox( positions[i * 2*N], left[0], lBox[0] , lBoxInverse[0] )            
             );
-
-
 
             assert(currentLattice.extendedSize() > index);
             assert(index > currentLattice.nGhosts()[0]);
@@ -88,8 +82,93 @@ void particleDataIndex::list(const Real * positions,int iStart,int iEnd,int N)
 
             recordParticleCellPosition(i, index, ii);
         }
-    }   
+    }
+
 };
+
+
+
+void particleData3D::list(const Real * positions,int iStart,int iEnd,int N)
+{
+    const auto & currentLattice=getLattice();
+    const auto & lBox = currentLattice.lengthBox();
+    const auto & lBoxInverse = currentLattice.inverseLengthBox();
+    const auto & left = currentLattice.lowerEdge();
+
+    resizeParticleData(N);
+
+
+    if (currentLattice.dimensions()== 3 )
+        {
+        for (int i=0;i<N;i++) 
+        {            
+            size_t index = currentLattice.index(
+                positions[i],
+                positions[i+N],
+                positions[i+2*N]
+            );
+
+            assert(currentLattice.extendedSize() > index);
+            assert(index > currentLattice.nGhosts()[0]);
+
+            auto ii = (*this)[index].add(i,positions[i],positions[i+N],positions[i+2*N]);
+
+            assert ( 
+                (*this)[index].getParticlePosition(ii,0) == positions[i]
+            );
+
+            recordParticleCellPosition(i, index, ii);
+        }
+    }
+
+};
+
+
+
+template<class T>
+void particleDataBase<T>::updateList(const Real * positions,int iStart,int iEnd,int N)
+{
+    const auto & currentLattice=getLattice();
+    const auto & lBox = currentLattice.lengthBox();
+    const auto & lBoxInverse = currentLattice.inverseLengthBox();
+    const auto & left = currentLattice.lowerEdge();
+
+
+    if (currentLattice.dimensions()== 3 )
+        {
+        for (int i=iStart;i<=iEnd;i++) 
+        {
+            auto newIndex = currentLattice.index(
+                positions[i],
+                positions[i+N],
+                positions[i+2*N]
+            );
+
+            auto oldIndex = cellIndex(i);
+            auto oldSubIndex = subCellIndex(i);
+
+            
+            (*this)[oldIndex].updatePosition(oldSubIndex,positions[i],positions[i+N],positions[i+2*N]);
+
+
+            if (oldIndex != newIndex)
+            {
+                
+                auto ii = (*this)[oldIndex].moveTo( oldSubIndex, (*this)[newIndex]  );
+                auto iSwappedParticle = (*this)[oldIndex].getParticleIndex(oldSubIndex); 
+                recordParticleCellPosition(iSwappedParticle, oldIndex,oldSubIndex);
+                recordParticleCellPosition(i, newIndex, ii);
+
+            }
+
+            
+            
+        }
+        }
+};
+
+
+
 
 template<class T>
 void particleDataBase<T>::checkPBCGhostCells()
@@ -154,6 +233,11 @@ void particleDataBase<T>::checkPBCGhostCells()
 
 
 template class particleDataBase<indexCellData>;
+template class particleDataBase<particleCellData3d>;
+
+
+
+
 
 
 

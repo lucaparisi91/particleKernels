@@ -6,13 +6,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/luca/source/particleKernels/external/googletest/googletest/src/gtest-all.cc" "/home/luca/source/particleKernels/build/external/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Intel")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../external/googletest/googletest/include"
   "../external/googletest/googletest"
-  "/usr/include/x86_64-linux-gnu/mpich"
   )
 
 # Targets to which this target links.

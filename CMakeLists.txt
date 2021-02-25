@@ -15,7 +15,6 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   set (COMPILER_FLAGS "-mavx2 -mfma" )
 
 else()
-message( FATAL_ERROR "Compiler not supported (yet)." )
 endif()
 
 
@@ -35,12 +34,9 @@ if (OPENMP_FOUND)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
-find_package(MPI REQUIRED)
 
-set(CMAKE_CXX_COMPILE_FLAGS ${CMAKE_CXX_COMPILE_FLAGS} ${MPI_COMPILE_FLAGS} ${CMAKE_CXX_FLAGS_ADDITIONAL} )
-set(CMAKE_CXX_LINK_FLAGS ${CMAKE_CXX_LINK_FLAGS} ${MPI_LINK_FLAGS})
-
-include_directories(SYSTEM ${MPI_INCLUDE_PATH})
+set(CMAKE_CXX_COMPILE_FLAGS ${CMAKE_CXX_COMPILE_FLAGS} ${CMAKE_CXX_FLAGS_ADDITIONAL} )
+set(CMAKE_CXX_LINK_FLAGS ${CMAKE_CXX_LINK_FLAGS} )
 
 
 add_subdirectory(${PROJECT_BINARY_DIR}/../external/googletest)
@@ -64,7 +60,7 @@ target_include_directories(main_lib PUBLIC
 			   )
 
      	 
-target_link_libraries (main_lib ${MPI_LIBRARIES} )
+target_link_libraries (main_lib  )
 
 
 add_executable(main src/main.cpp)
@@ -79,7 +75,16 @@ add_executable(tst tst/main.cpp tst/verlet-test.cpp tst/linkedCell.cpp)
 
 set_target_properties( tst PROPERTIES LINK_FLAGS "-pg" )
 set_target_properties( tst PROPERTIES COMPILE_FLAGS ${CMAKE_CXX_FLAGS_ADDITIONAL} )
-target_link_libraries(tst gtest main_lib ${MPI_LIBRARIES})		
+target_link_libraries(tst gtest main_lib)		
+
+
+add_executable(timers timers/main.cpp)
+
+
+set_target_properties( timers PROPERTIES LINK_FLAGS "-pg" )
+set_target_properties( timers PROPERTIES COMPILE_FLAGS ${CMAKE_CXX_FLAGS_ADDITIONAL} )
+target_link_libraries(timers gtest main_lib )		
+
 
 
 #set(TEST_SOURCES  )

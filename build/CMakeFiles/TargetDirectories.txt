@@ -4,6 +4,7 @@
 /home/luca/source/particleKernels/build/CMakeFiles/list_install_components.dir
 /home/luca/source/particleKernels/build/CMakeFiles/rebuild_cache.dir
 /home/luca/source/particleKernels/build/CMakeFiles/edit_cache.dir
+/home/luca/source/particleKernels/build/CMakeFiles/timers.dir
 /home/luca/source/particleKernels/build/CMakeFiles/tst.dir
 /home/luca/source/particleKernels/build/CMakeFiles/main.dir
 /home/luca/source/particleKernels/build/CMakeFiles/main_lib.dir

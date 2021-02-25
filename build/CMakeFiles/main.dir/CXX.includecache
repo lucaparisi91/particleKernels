@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/luca/source/particleKernels/src/main.cpp
+cstdlib
+-
+iostream
+-
+numeric
+-
+mpi.h
+-
+immintrin.h
+-
+randomKernel.h
+/home/luca/source/particleKernels/src/randomKernel.h
+omp.h
+/home/luca/source/particleKernels/src/omp.h
+
+/home/luca/source/particleKernels/src/randomKernel.h
+random
+-
+random
+-
+mkl/mkl_vsl.h
+/home/luca/source/particleKernels/src/mkl/mkl_vsl.h
+

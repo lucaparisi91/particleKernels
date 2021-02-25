@@ -86,9 +86,7 @@ class timers
 
     std::map<std::string,std::shared_ptr<timer>  > _timers;
 
-
 };
-
 
 
 #define START_TIMER(name) timers::getInstance()[name].start()

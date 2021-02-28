@@ -60,15 +60,15 @@ include CMakeFiles/timers.dir/flags.make
 CMakeFiles/timers.dir/timers/main.cpp.o: CMakeFiles/timers.dir/flags.make
 CMakeFiles/timers.dir/timers/main.cpp.o: ../timers/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/timers.dir/timers/main.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/timers.dir/timers/main.cpp.o -c /home/luca/source/particleKernels/timers/main.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/timers.dir/timers/main.cpp.o -c /home/luca/source/particleKernels/timers/main.cpp
 
 CMakeFiles/timers.dir/timers/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/timers.dir/timers/main.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/timers/main.cpp > CMakeFiles/timers.dir/timers/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/timers/main.cpp > CMakeFiles/timers.dir/timers/main.cpp.i
 
 CMakeFiles/timers.dir/timers/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/timers.dir/timers/main.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/timers/main.cpp -o CMakeFiles/timers.dir/timers/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/timers/main.cpp -o CMakeFiles/timers.dir/timers/main.cpp.s
 
 # Object files for target timers
 timers_OBJECTS = \

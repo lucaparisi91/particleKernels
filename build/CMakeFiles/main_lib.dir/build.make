@@ -60,80 +60,80 @@ include CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/randomKernel.cpp.o: CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/randomKernel.cpp.o: ../src/randomKernel.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main_lib.dir/src/randomKernel.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/randomKernel.cpp.o -c /home/luca/source/particleKernels/src/randomKernel.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/randomKernel.cpp.o -c /home/luca/source/particleKernels/src/randomKernel.cpp
 
 CMakeFiles/main_lib.dir/src/randomKernel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/randomKernel.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/randomKernel.cpp > CMakeFiles/main_lib.dir/src/randomKernel.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/randomKernel.cpp > CMakeFiles/main_lib.dir/src/randomKernel.cpp.i
 
 CMakeFiles/main_lib.dir/src/randomKernel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/randomKernel.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/randomKernel.cpp -o CMakeFiles/main_lib.dir/src/randomKernel.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/randomKernel.cpp -o CMakeFiles/main_lib.dir/src/randomKernel.cpp.s
 
 CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o: CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o: ../src/cellNeighbourList.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o -c /home/luca/source/particleKernels/src/cellNeighbourList.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o -c /home/luca/source/particleKernels/src/cellNeighbourList.cpp
 
 CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/cellNeighbourList.cpp > CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/cellNeighbourList.cpp > CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.i
 
 CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/cellNeighbourList.cpp -o CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/cellNeighbourList.cpp -o CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.s
 
 CMakeFiles/main_lib.dir/src/timers.cpp.o: CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/timers.cpp.o: ../src/timers.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main_lib.dir/src/timers.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/timers.cpp.o -c /home/luca/source/particleKernels/src/timers.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/timers.cpp.o -c /home/luca/source/particleKernels/src/timers.cpp
 
 CMakeFiles/main_lib.dir/src/timers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/timers.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/timers.cpp > CMakeFiles/main_lib.dir/src/timers.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/timers.cpp > CMakeFiles/main_lib.dir/src/timers.cpp.i
 
 CMakeFiles/main_lib.dir/src/timers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/timers.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/timers.cpp -o CMakeFiles/main_lib.dir/src/timers.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/timers.cpp -o CMakeFiles/main_lib.dir/src/timers.cpp.s
 
 CMakeFiles/main_lib.dir/src/lattice.cpp.o: CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/lattice.cpp.o: ../src/lattice.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main_lib.dir/src/lattice.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/lattice.cpp.o -c /home/luca/source/particleKernels/src/lattice.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/lattice.cpp.o -c /home/luca/source/particleKernels/src/lattice.cpp
 
 CMakeFiles/main_lib.dir/src/lattice.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/lattice.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/lattice.cpp > CMakeFiles/main_lib.dir/src/lattice.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/lattice.cpp > CMakeFiles/main_lib.dir/src/lattice.cpp.i
 
 CMakeFiles/main_lib.dir/src/lattice.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/lattice.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/lattice.cpp -o CMakeFiles/main_lib.dir/src/lattice.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/lattice.cpp -o CMakeFiles/main_lib.dir/src/lattice.cpp.s
 
 CMakeFiles/main_lib.dir/src/particleData.cpp.o: CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/particleData.cpp.o: ../src/particleData.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main_lib.dir/src/particleData.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/particleData.cpp.o -c /home/luca/source/particleKernels/src/particleData.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/particleData.cpp.o -c /home/luca/source/particleKernels/src/particleData.cpp
 
 CMakeFiles/main_lib.dir/src/particleData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/particleData.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/particleData.cpp > CMakeFiles/main_lib.dir/src/particleData.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/particleData.cpp > CMakeFiles/main_lib.dir/src/particleData.cpp.i
 
 CMakeFiles/main_lib.dir/src/particleData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/particleData.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/particleData.cpp -o CMakeFiles/main_lib.dir/src/particleData.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/particleData.cpp -o CMakeFiles/main_lib.dir/src/particleData.cpp.s
 
 CMakeFiles/main_lib.dir/src/utils.cpp.o: CMakeFiles/main_lib.dir/flags.make
 CMakeFiles/main_lib.dir/src/utils.cpp.o: ../src/utils.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main_lib.dir/src/utils.cpp.o"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/utils.cpp.o -c /home/luca/source/particleKernels/src/utils.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_lib.dir/src/utils.cpp.o -c /home/luca/source/particleKernels/src/utils.cpp
 
 CMakeFiles/main_lib.dir/src/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_lib.dir/src/utils.cpp.i"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/utils.cpp > CMakeFiles/main_lib.dir/src/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/src/utils.cpp > CMakeFiles/main_lib.dir/src/utils.cpp.i
 
 CMakeFiles/main_lib.dir/src/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_lib.dir/src/utils.cpp.s"
-	/opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/utils.cpp -o CMakeFiles/main_lib.dir/src/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/src/utils.cpp -o CMakeFiles/main_lib.dir/src/utils.cpp.s
 
 # Object files for target main_lib
 main_lib_OBJECTS = \

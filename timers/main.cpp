@@ -7,7 +7,6 @@
 #include "timers.h"
 
 
-
 template<class testParticleData_t>
 void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
 {
@@ -51,12 +50,10 @@ void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
 
     std::default_random_engine generator(12);
 
-
     utils::initRandom(positions,3,0,N-1,N,generator,-l/2,l/2);
 
 
     utils::restrictToBox(positionsPBC,positions,0,N-1,N,leftEdge,lBox);
-
 
     utils::gaussianInteraction gauss(2,1);
     utils::tetaInteraction teta(1,1);
@@ -104,11 +101,22 @@ void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
         int iStart=0;
         int iEnd=N-1;
 
+
         utils::initRandom(positions,3,iStart,iEnd,N,generator,-l/2,l/2);
          START_TIMER("2bDistances") ;
+
+         START_TIMER("restrictToBox") ;
         utils::restrictToBox(positionsPBC,positions,iStart,iEnd,N,leftEdge,lBox);
+         STOP_TIMER("restrictToBox") ;
+
+        START_TIMER("updateList") ;  
         particleAcc.updateList(positionsPBC,iStart,iEnd,N);
+        STOP_TIMER("updateList") ;  
+        
+        START_TIMER("2bDistancesReduction") ;  
         Real vUpdate=twoBodyDistancesIsotropicReduction(particleAcc,gauss,positionsPBC,iStart,iEnd,N);
+        STOP_TIMER("2bDistancesReduction")  ;
+        
         STOP_TIMER("2bDistances") ;
         
         std::cout << vUpdate << std::endl;
@@ -129,19 +137,19 @@ int main(int argc,char** argv)
     int nSamples=10;
     int N=100;
     std::string method="direct";
-    
+
     if ( argc > 1) method = argv[1];
     if ( argc > 2) N = atoi( argv[2] );
     if (argc > 3 ) nSamples=atoi( argv[3] );
 
-    
-
-    if (method == "direct" or "acc_index")
+    if (method == "direct" or (method == "acc_index") )
         {
             timeTwoBodyPotential<particleDataIndex>(method,N,nSamples);
         }
-        else if (method == "acc_copy")
+    else if (method == "acc_copy")
         {
+                std::cout << method << std::endl;
+
             timeTwoBodyPotential<particleData3D>(method,N,nSamples);
         }
 }

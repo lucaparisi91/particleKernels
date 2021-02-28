@@ -1,0 +1,8 @@
+
+=== Start: [2021/02/28 11:25:47] === 
+Analysis started...
+Result file: /home/luca/source/particleKernels/timers/test/e000/trc002/trc002.advixe 
+Application exit code: 0 
+Result file: /home/luca/source/particleKernels/timers/test/e000/trc002/trc002.advixe 
+Analysis completed
+=== End: [2021/02/28 11:26:28] === 

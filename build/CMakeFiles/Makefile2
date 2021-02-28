@@ -249,8 +249,8 @@ CMakeFiles/main_lib.dir/clean:
 # Target rules for target external/googletest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletest/googlemock/CMakeFiles/gmock.dir/all
 external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
+external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletest/googlemock/CMakeFiles/gmock.dir/all
 	$(MAKE) -f external/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f external/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"

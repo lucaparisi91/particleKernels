@@ -32,10 +32,10 @@ class particleDataBase
         return _subCellIndexPerParticle[iParticle];        
      }
 
+    
     void updateList(const double * positions, int iStart, int iEnd, int N);
-    auto & operator[](size_t i)  {return *_cellData[i];}
-    const auto & operator[](size_t i) const {return *_cellData[i];}
-
+    auto & operator[](size_t i) noexcept {return *_cellData[i];}
+    const auto & operator[](size_t i) const noexcept {return *_cellData[i];}
 
    
 

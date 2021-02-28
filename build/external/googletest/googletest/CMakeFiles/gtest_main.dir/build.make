@@ -60,15 +60,15 @@ include external/googletest/googletest/CMakeFiles/gtest_main.dir/flags.make
 external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: external/googletest/googletest/CMakeFiles/gtest_main.dir/flags.make
 external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: ../external/googletest/googletest/src/gtest_main.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
-	cd /home/luca/source/particleKernels/build/external/googletest/googletest && /opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc
+	cd /home/luca/source/particleKernels/build/external/googletest/googletest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc
 
 external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_main.dir/src/gtest_main.cc.i"
-	cd /home/luca/source/particleKernels/build/external/googletest/googletest && /opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
+	cd /home/luca/source/particleKernels/build/external/googletest/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
 
 external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_main.dir/src/gtest_main.cc.s"
-	cd /home/luca/source/particleKernels/build/external/googletest/googletest && /opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
+	cd /home/luca/source/particleKernels/build/external/googletest/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
 
 # Object files for target gtest_main
 gtest_main_OBJECTS = \

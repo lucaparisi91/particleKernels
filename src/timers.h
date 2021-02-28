@@ -1,8 +1,11 @@
+#ifndef TIMERS_H
+#define TIMERS_H
+
+
 #include <string>
 #include <memory>
 #include <map>
 #include "omp.h"
-
 
 class timer
 {
@@ -77,6 +80,14 @@ class timers
 
     std::string report() const;
 
+    void start(std::string label)
+    {
+        if (_timers.count( label ) == 0 )
+        {
+            add(label);
+        }
+        (*this)[label].start();
+    }
     
     private:
 
@@ -89,10 +100,11 @@ class timers
 };
 
 
-#define START_TIMER(name) timers::getInstance()[name].start()
+#define START_TIMER(name) timers::getInstance().start(name)
 #define STOP_TIMER(name) timers::getInstance()[name].stop()
 #define ADD_TIMER(name) timers::getInstance().add(name)
 
 
 
 
+#endif

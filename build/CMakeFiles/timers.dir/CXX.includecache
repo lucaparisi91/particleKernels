@@ -41,6 +41,8 @@ omp.h
 ../src/twoBodyDistances.hpp
 particleData.h
 ../src/particleData.h
+timers.h
+../src/timers.h
 
 ../src/utils.h
 array

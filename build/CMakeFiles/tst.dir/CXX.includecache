@@ -320,14 +320,6 @@ acxx_demangle.h
 vector
 -
 
-../src/cellNeighbourList.h
-vector
--
-array
--
-listKernels.hpp
-../src/listKernels.hpp
-
 ../src/lattice.h
 vector
 -
@@ -336,10 +328,6 @@ memory
 cmath
 -
 cassert
--
-
-../src/listKernels.hpp
-cmath
 -
 
 ../src/particleData.h
@@ -363,6 +351,8 @@ omp.h
 ../src/twoBodyDistances.hpp
 particleData.h
 ../src/particleData.h
+timers.h
+../src/timers.h
 
 ../src/utils.h
 array
@@ -389,24 +379,4 @@ twoBodyDistances.hpp
 /home/luca/source/particleKernels/tst/twoBodyDistances.hpp
 utils.h
 /home/luca/source/particleKernels/tst/utils.h
-
-/home/luca/source/particleKernels/tst/main.cpp
-gtest/gtest.h
-/home/luca/source/particleKernels/tst/gtest/gtest.h
-testGlobals.h
-/home/luca/source/particleKernels/tst/testGlobals.h
-
-/home/luca/source/particleKernels/tst/testGlobals.h
-
-/home/luca/source/particleKernels/tst/verlet-test.cpp
-gtest/gtest.h
-/home/luca/source/particleKernels/tst/gtest/gtest.h
-cellNeighbourList.h
-/home/luca/source/particleKernels/tst/cellNeighbourList.h
-random
--
-cmath
--
-timers.h
-/home/luca/source/particleKernels/tst/timers.h
 

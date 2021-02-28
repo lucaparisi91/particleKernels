@@ -3,7 +3,6 @@ using Real = double;
 #include<cstdlib>
 #include<iostream>
 #include <numeric>
-#include <mpi.h>
 #include <immintrin.h>
 #include "randomKernel.h"
 #include "omp.h"

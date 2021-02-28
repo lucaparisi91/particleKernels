@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/luca/source/particleKernels/tst/main.cpp" "/home/luca/source/particleKernels/build/CMakeFiles/tst.dir/tst/main.cpp.o"
   "/home/luca/source/particleKernels/tst/verlet-test.cpp" "/home/luca/source/particleKernels/build/CMakeFiles/tst.dir/tst/verlet-test.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Intel")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -1,11 +1,17 @@
+#ifndef UTILS_H
+#define UTILS_H
+
+
+
 using Real = double;
 #include <array>
 #include <random>
 
-
 namespace utils
 {
-    Real differencePBC(Real t, Real lBox, Real lBoxInverse ) ;  
+     inline Real differencePBC(Real t, Real lBox, Real lBoxInverse ) {return ( t - std::round(t*lBoxInverse )*lBox);}
+
+     
     Real restrictToBox(Real x, Real left, Real lBox, Real lBoxInverse);
 
     void restrictToBox(Real * positionsPBC, const Real * positionsOld, int iStart,int iEnd, int N, const std::array<Real,3> & left, const std::array<Real,3> & lBox );
@@ -13,18 +19,21 @@ namespace utils
     void initRandom(Real * particles,int dims,int iStart,int iEnd,size_t N,  std::default_random_engine & generator,
  Real xmin=0,Real xmax=1);
 
-
+ 
  template<class V_t,int dims >
-Real twoBodyDistancesIsotropicReduction(const Real * particles,const V_t & op,size_t N,const std::array<Real,dims> &  lBox)
+Real twoBodyDistancesIsotropicReduction(const __restrict Real * particles,const V_t & op,size_t N,const std::array<Real,dims> &  lBox)
 {
     Real sum2b=0;
+
+#pragma omp parallel default(none) shared(sum2b,particles,op,N,lBox)
+{
     std::array<Real,dims> lBoxInverse;
 
     for(int d=0;d<dims;d++)
     {
         lBoxInverse[d]=1./lBox[d];
     }
-
+#pragma omp for reduction(+:sum2b)
     for (int iParticle=0;iParticle<N;iParticle++)
     {   
         for (int jParticle=0;jParticle<iParticle;jParticle++)
@@ -42,8 +51,9 @@ Real twoBodyDistancesIsotropicReduction(const Real * particles,const V_t & op,si
 
         }
     }
+}
 
-    return sum2b;
+return sum2b;
 
 }
 
@@ -99,3 +109,5 @@ struct tetaInteraction
 };
 
 };
+
+#endif

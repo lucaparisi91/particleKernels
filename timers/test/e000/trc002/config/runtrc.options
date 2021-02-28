@@ -1,0 +1,14 @@
+-r
+/home/luca/source/particleKernels/timers/test/e000/trc002
+--return-app-exitcode
+--cs-mode=no-count-loops,no-count-flops,stl-profiling,stack-stitching
+--cs-file=/home/luca/source/particleKernels/timers/test/e000/callstacks.def
+--jit-profiling
+--gpu-collect-traffic
+--search-dir
+all=./
+--
+/home/luca/source/particleKernels/timers/timers
+acc_copy
+10000
+1000

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="0.1" 
+                             kind="DATAKIND_CORRECTNESS" >
+  <site filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp" 
+        line_no="84" 
+        label="loop_site_119" 
+        loop_name="twoBodyDistancesIsotropicReduction&lt;particleData3D, utils::gaussianInteraction, triangularLoopPolicy&gt;" 
+        is_vectorized="0">
+    <dependencies RAW="2" 
+                  WAR="0" 
+                  WAW="0" 
+                  potentialWAR="0" 
+                  potentialWAW="0" 
+                  potentialReduction="0" 
+                  nobegin="0"/>
+  </site> 
+  <site filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp" 
+        line_no="93" 
+        label="loop_site_118" 
+        loop_name="_S_ref" 
+        is_vectorized="0">
+    <dependencies RAW="1" 
+                  WAR="0" 
+                  WAW="0" 
+                  potentialWAR="0" 
+                  potentialWAW="0" 
+                  potentialReduction="0" 
+                  nobegin="0"/>
+  </site> 
+  <site filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp" 
+        line_no="99" 
+        label="loop_site_123" 
+        loop_name="twoBodyDistancesIsotropicReduction&lt;particleData3D, utils::gaussianInteraction, triangularLoopPolicy&gt;" 
+        is_vectorized="0">
+    <dependencies RAW="1" 
+                  WAR="0" 
+                  WAW="0" 
+                  potentialWAR="0" 
+                  potentialWAW="0" 
+                  potentialReduction="0" 
+                  nobegin="0"/>
+  </site> 
+  <site filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp" 
+        line_no="109" 
+        label="loop_site_122" 
+        loop_name="wrap" 
+        is_vectorized="0">
+    <dependencies RAW="0" 
+                  WAR="0" 
+                  WAW="0" 
+                  potentialWAR="0" 
+                  potentialWAW="0" 
+                  potentialReduction="0" 
+                  nobegin="0"/>
+  </site> 
+</IntelParallelAdvisorSummary >

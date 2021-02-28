@@ -50,8 +50,9 @@ class lattice
 
 
     // map particle position to cell index
-    inline index_t index(double x, int d) const {
-         index_t i= std::floor( (  (x- _lowerEdge[d])*_lBoxInverse[d]  ) * _shape[d]) + _nGhosts[d];assert( (i<=highIndex(d) ) & (i>=lowIndex(d)) );return i;
+    inline index_t index(double x, int d) const noexcept{
+         return std::floor( (  (x- _lowerEdge[d])*_lBoxInverse[d]  ) * _shape[d]) + _nGhosts[d];
+         //assert( (i<=highIndex(d) ) & (i>=lowIndex(d)) );return i;
           } // x is the d coordinate of the dims-dimensional position vector (x,y,z)
     
 
@@ -61,36 +62,35 @@ class lattice
     inline index_t index(double x, double y) const {return index( index(x,0), index(y,1)  );}
 
 
-    int dimensions() const {return dims;}
-    const auto & shape() const {return _shape;}
+    int dimensions() const noexcept{return dims;}
+    const auto & shape() const noexcept{return _shape;}
 
 
-    const auto & extendedShape() const {return _extendedShape;} // including ghost cells
+    const auto & extendedShape() const noexcept {return _extendedShape;} // including ghost cells
 
     const auto & nGhosts() const {return _nGhosts;}
 
 
 
-    size_t size() const {return _size;} // returns the total number of valid cells
+    size_t size() const noexcept {return _size;} // returns the total number of valid cells
 
-    auto extendedSize() const {return _extendedSize;}
+    auto extendedSize() const noexcept {return _extendedSize;}
     
-
-    int nCellsNeighbourhood() const {return _nNeighboursPerCell;}
-
-
-    int getNeighbour(index_t iCell, index_t iNeighboorhood ) const  {return _neighbourOffsets[iNeighboorhood] + iCell; } // includes the cell i from some non zero offset
+    int nCellsNeighbourhood() const noexcept {return _nNeighboursPerCell;}
 
 
-    inline int lowIndex(int d) const {return _nGhosts[d];}
-    inline int highIndex(int d) const {return _shape[d] - 1 + _nGhosts[d];}
+    int getNeighbour(index_t iCell, index_t iNeighboorhood ) const noexcept  {return _neighbourOffsets[iNeighboorhood] + iCell; } // includes the cell i from some non zero offset
+
+
+    inline int lowIndex(int d) const noexcept {return _nGhosts[d];}
+    inline int highIndex(int d) const noexcept {return _shape[d] - 1 + _nGhosts[d];}
 
 
 
-    inline Real wrap( int iCell,int d) const { return _wrap[d][iCell];} // return -1/0/1 * lBox[d] depending if the cell is on the low face, bulk , high face in direction d
+    inline Real wrap( int iCell,int d) const noexcept { return _wrap[d][iCell];} // return -1/0/1 * lBox[d] depending if the cell is on the low face, bulk , high face in direction d
 
     void checkNeighbourIndexing();
-
+    
 
     private:
 

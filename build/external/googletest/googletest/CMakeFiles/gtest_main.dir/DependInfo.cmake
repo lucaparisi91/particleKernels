@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/luca/source/particleKernels/external/googletest/googletest/src/gtest_main.cc" "/home/luca/source/particleKernels/build/external/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Intel")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

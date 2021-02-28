@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp"
+           line_no="89"
+           routine="twoBodyDistancesIsotropicReduction&lt;particleData3D, utils::gaussianInteraction, triangularLoopPolicy&gt;$omp$parallel@72"
+           is_vectorized="0"
+           self_time="6.067646E+00"
+           total_time="2.338924E+01"
+           trip_counts="27"
+           func_instance="12"
+           priority="0"/>
+  <hotspot filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp"
+           line_no="95"
+           routine="twoBodyDistancesIsotropicReduction&lt;particleData3D, utils::gaussianInteraction, triangularLoopPolicy&gt;$omp$parallel@72"
+           is_vectorized="0"
+           self_time="7.754017E-01"
+           total_time="1.565170E+01"
+           trip_counts="1"
+           func_instance="10"
+           priority="0"/>
+  <hotspot filename="/home/luca/source/particleKernels/timers/../src/twoBodyDistances.hpp"
+           line_no="105"
+           routine="twoBodyDistancesIsotropicReduction&lt;particleData3D, utils::gaussianInteraction, triangularLoopPolicy&gt;$omp$parallel@72"
+           is_vectorized="0"
+           self_time="6.382811E-01"
+           total_time="6.945409E+00"
+           trip_counts="1"
+           func_instance="343"
+           priority="0"/>
+  <hotspot filename="/home/luca/source/particleKernels/timers/../src/particleData.cpp"
+           line_no="139"
+           routine="particleDataBase&lt;particleCellData3d&gt;::updateList"
+           is_vectorized="0"
+           self_time="5.618321E-01"
+           total_time="2.412755E+00"
+           trip_counts="10000"
+           func_instance="20"
+           priority="0"/>
+  <hotspot filename="/usr/include/c++/9/bits/random.tcc"
+           line_no="3332"
+           routine="std::generate_canonical&lt;double, (unsigned long)53, std::linear_congruential_engine&lt;unsigned long, (unsigned long)16807, (unsigned long)0, (unsigned long)2147483647&gt;&gt;"
+           is_vectorized="0"
+           self_time="1.706050E-01"
+           total_time="2.286235E-01"
+           trip_counts="2"
+           func_instance="64"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

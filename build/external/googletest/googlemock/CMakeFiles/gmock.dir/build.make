@@ -60,15 +60,15 @@ include external/googletest/googlemock/CMakeFiles/gmock.dir/flags.make
 external/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: external/googletest/googlemock/CMakeFiles/gmock.dir/flags.make
 external/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: ../external/googletest/googlemock/src/gmock-all.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-	cd /home/luca/source/particleKernels/build/external/googletest/googlemock && /opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/luca/source/particleKernels/external/googletest/googlemock/src/gmock-all.cc
+	cd /home/luca/source/particleKernels/build/external/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/luca/source/particleKernels/external/googletest/googlemock/src/gmock-all.cc
 
 external/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/src/gmock-all.cc.i"
-	cd /home/luca/source/particleKernels/build/external/googletest/googlemock && /opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/external/googletest/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
+	cd /home/luca/source/particleKernels/build/external/googletest/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/source/particleKernels/external/googletest/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
 
 external/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/src/gmock-all.cc.s"
-	cd /home/luca/source/particleKernels/build/external/googletest/googlemock && /opt/intel/oneapi/compiler/2021.1.2/linux/bin/intel64/icc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/external/googletest/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
+	cd /home/luca/source/particleKernels/build/external/googletest/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/source/particleKernels/external/googletest/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
 
 # Object files for target gmock
 gmock_OBJECTS = \

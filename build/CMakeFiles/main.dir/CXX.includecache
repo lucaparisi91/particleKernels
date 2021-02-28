@@ -13,8 +13,6 @@ iostream
 -
 numeric
 -
-mpi.h
--
 immintrin.h
 -
 randomKernel.h

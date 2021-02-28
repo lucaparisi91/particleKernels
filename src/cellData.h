@@ -23,7 +23,7 @@ class indexCellData : public cellData
     
     }
 
-    size_t size() const {return _nParticles;}
+    size_t size() const noexcept {return _nParticles;}
 
 
     index_t add(index_t iParticle){
@@ -63,7 +63,6 @@ class indexCellData : public cellData
     index_t _nParticles; // number of particles containted in the box
 };
 
-
 class particleCellData3d : public cellData
 {   
     public:
@@ -85,7 +84,7 @@ class particleCellData3d : public cellData
     }
 
 
-    size_t size() const {return _nParticles;}
+    size_t size() const noexcept {return _nParticles;}
 
     index_t add(index_t iParticle, Real x,Real y, Real z){
 
@@ -113,7 +112,7 @@ class particleCellData3d : public cellData
     
 
 
-    auto nParticles() const  {return _nParticles;}
+    auto nParticles() const noexcept {return _nParticles;} 
 
     void remove(index_t subCellIndex)
     {
@@ -128,13 +127,12 @@ class particleCellData3d : public cellData
         _nParticles--;
     }
   
-
-    index_t inline   getParticleIndex(index_t i) const {
+    index_t inline   getParticleIndex(index_t i) const noexcept {
         return _particleIndices[i]; 
         } // get the i_th particle index
     
 
-    Real inline   getParticlePosition(index_t i,int d) const {
+    Real inline   getParticlePosition(index_t i,int d) const noexcept {
         return _positions[d][i]; 
         } // get the i_th particle index
 

@@ -3,7 +3,6 @@
 #include <cassert>
 namespace utils
 {
-    Real differencePBC(Real t, Real lBox, Real lBoxInverse ) {return ( t - std::round(t*lBoxInverse )*lBox);}
 
     Real restrictToBox(Real x, Real left, Real lBox, Real lBoxInverse)
     {

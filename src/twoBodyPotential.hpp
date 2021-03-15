@@ -10,6 +10,7 @@ void addTwoBodyIsotropicForcesRectangular(
      int j1, int j2, // j-particle range
      int t0 , int t1, // time range
      int N, // total number of particles 
+     int D, // length of the second dimension of the array( usually equal to dims)
      int T, // total number of time slices
      const Real * lBox
      )
@@ -18,7 +19,6 @@ void addTwoBodyIsotropicForcesRectangular(
     Assumes no intersection between i-particle range and j-particle range 
     */
     Real sum2b=0;
-    constexpr int D = dims;
 
     std::array<Real,dims> lBoxInverse;
 
@@ -66,7 +66,8 @@ void addTwoBodyIsotropicForcesTriangular(
      int i1,int i2, // i-particle range
      int j1, // beginning of the i-range
      int t0 , int t1, // time range
-     int N, // total number of particles 
+     int N, // total number of particles
+     int D, // max number of dimensions 
      int T, // total number of time slices
      const Real * lBox
      )
@@ -75,7 +76,6 @@ void addTwoBodyIsotropicForcesTriangular(
     Assumes no intersection between i-particle range and j-particle range 
     */
     Real sum2b=0;
-    constexpr int D = dims;
 
     std::array<Real,dims> lBoxInverse;
 
@@ -127,12 +127,12 @@ Real evaluateTwoBodyRectangular(
      int j1, int j2, // j-particle range
      int t0 , int t1, // time range
      int N, // total number of particles 
+     int D, // max number of dimensions
      int T, // total number of time slices
      const Real * lBox
      )
 {
     Real sum2b=0;
-    constexpr int D = dims;
 
 
     std::array<Real,dims> lBoxInverse;
@@ -170,13 +170,13 @@ Real evaluateTwoBodyTriangular(
      int i1,int i2, // i-particle range
      int j1 ,// beginning of the i-particle set
      int t0 , int t1, // time range
-     int N, // total number of particles 
+     int N, // total number of particles
+     int D , // maximum number of dimensions 
      int T, // total number of time slices
      const Real * lBox
      )
 {
     Real sum2b=0;
-    constexpr int D = dims;
 
 
     std::array<Real,dims> lBoxInverse;
@@ -214,10 +214,14 @@ template<class V_t>
 Real twoBodyPotential<dims>::operator()(const V_t & V, // two body potential
 const Real * positions, // raw data in a contigous array of shape (N,dims, T)
 int i1 , int i2, // particle range updated 
- int t0 , int t1,  // time range updated
- int N, int T // shape information of input data
+ int t0 , int t1  // time range updated
+ // shape information of input data
  ) const
 {
+
+    int N = _dimensions[0];
+    int D = _dimensions[1];
+    int T = _dimensions[2];
 
     if ( not isTriangular )
     {
@@ -226,11 +230,11 @@ int i1 , int i2, // particle range updated
         
         if (isInA)
         {
-            return evaluateTwoBodyRectangular<dims,V_t>(V,positions,i1,i2,iStartB,iEndB,t0 , t1,N,T,_lBox.data());
+            return evaluateTwoBodyRectangular<dims,V_t>(V,positions,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,_lBox.data());
         }
         else if (isInB)
         {
-           return evaluateTwoBodyRectangular<dims,V_t>(V,positions,i1,i2,iStartA,iEndA,t0 , t1,N,T,_lBox.data());
+           return evaluateTwoBodyRectangular<dims,V_t>(V,positions,i1,i2,iStartA,iEndA,t0 , t1,N,D,T,_lBox.data());
         }
 
         return 0;
@@ -242,8 +246,8 @@ int i1 , int i2, // particle range updated
 
         if (isInA)
         {
-            auto sum = evaluateTwoBodyTriangular<dims,V_t>(V,positions,i1,i2,iStartA,t0 , t1,N,T,_lBox.data());
-            sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,i2+1,iEndA,i1,i2,t0 , t1,N,T,_lBox.data() );
+            auto sum = evaluateTwoBodyTriangular<dims,V_t>(V,positions,i1,i2,iStartA,t0 , t1,N,D,T,_lBox.data());
+            sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,_lBox.data() );
 
 
             return sum;
@@ -264,10 +268,14 @@ const V_t & V, // two body potential
 const Real * positions, // raw data in a contigous array of shape (N,dims, T),
  Real * forces, // raw data in a contigous array of shape (N,dims, T) where to add the force for each particle
 int i1 , int i2, // particle range updated 
- int t0 , int t1,  // time range updated
- int N, int T // shape information of input data
+ int t0 , int t1  // time range updated
  ) const
 {
+    int N= _dimensions[0];
+    int D= _dimensions[1];
+    int T= _dimensions[2];
+    
+    
     if ( not isTriangular )
     {
         bool isInA = containedInSetA(i1,i2);
@@ -275,11 +283,11 @@ int i1 , int i2, // particle range updated
         
         if (isInA)
         {
-            addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,T,_lBox.data());
+            addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,_lBox.data());
         }
         else if (isInB)
         {
-           addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,T,_lBox.data());
+           addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,_lBox.data());
         }
 
     }
@@ -289,8 +297,8 @@ int i1 , int i2, // particle range updated
 
         if (isInA)
         {
-            addTwoBodyIsotropicForcesTriangular<dims,V_t>(V,positions,forces,i1,i2,iStartA,t0 , t1,N,T,_lBox.data());
-             addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i2+1,iEndA,i1,i2,t0 , t1,N,T,_lBox.data() );
+            addTwoBodyIsotropicForcesTriangular<dims,V_t>(V,positions,forces,i1,i2,iStartA,t0 , t1,N,D,T,_lBox.data());
+             addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,_lBox.data() );
         }
         else
         {

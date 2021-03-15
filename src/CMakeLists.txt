@@ -1,7 +1,7 @@
 include(../cmake/init.cmake)
 
 set(SOURCES  randomKernel.cpp cellNeighbourList.cpp timers.cpp
-lattice.cpp particleData.cpp utils.cpp twoBodyDistancesDirect.cpp)
+lattice.cpp particleData.cpp utils.cpp twoBodyPotential.cpp)
 
 add_library(particleKernels_lib STATIC ${SOURCES})
 

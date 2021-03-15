@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "twoBodyDistancesDirect.h"
+#include "twoBodyPotential.h"
 #include <random>
 #include <cmath>
 #include "timers.h"
@@ -36,17 +36,17 @@ TEST(twoBodyPotential, evaluate)
     generateRandomParticlesInBox(particles,0,N-1,0,T-1,N ,D, T, generator, lBox.data() );
     
 
-    twoBodyPotential<D> potAB(rangeA,rangeB,lBox);
-    twoBodyPotential<D> potAA(rangeA,rangeA,lBox);
+    twoBodyPotential<D> potAB(rangeA,rangeB,lBox,{N,D,T});
+    twoBodyPotential<D> potAA(rangeA,rangeA,lBox,{N,D,T});
 
+    potAA.setRangA({0,N/2});
 
     gaussianPotential V(1);
 
-    Real sum = potAB(V,particles,rangeA[0],rangeA[1],0,T-1,N,T);
+    Real sum = potAB(V,particles,rangeA[0],rangeA[1],0,T-1);
 
 
-    potAB.addForce(V,particles,forces,rangeA[0],rangeB[0],0,T-1,N,T);
-    
+    potAB.addForce(V,particles,forces,rangeA[0],rangeB[0],0,T-1);
 
     Real sumCheck=0;
 
@@ -72,7 +72,7 @@ TEST(twoBodyPotential, evaluate)
     ASSERT_NEAR(sum,sumCheck,1e-6);
 
 
-    sum = potAA(V,particles,rangeA[0],rangeA[1],0,T-1,N,T);
+    sum = potAA(V,particles,rangeA[0],rangeA[1],0,T-1);
 
 
 
@@ -100,8 +100,8 @@ TEST(twoBodyPotential, evaluate)
     std::uniform_int_distribution<int> disIndexA(rangeA[0],rangeA[1]);
 
 
-    auto sumABOld = potAB(V,particles,rangeA[0],rangeA[1],0,T-1,N,T);
-    auto sumAAOld = potAA(V,particles,rangeA[0],rangeA[1],0,T-1,N,T);
+    auto sumABOld = potAB(V,particles,rangeA[0],rangeA[1],0,T-1);
+    auto sumAAOld = potAA(V,particles,rangeA[0],rangeA[1],0,T-1);
 
     int t0=0;
     int t1=T-1;
@@ -111,18 +111,18 @@ TEST(twoBodyPotential, evaluate)
             int iStart= disIndexA(generator);
             int iEnd= disIndexA(generator);
 
-            auto deltaSumAB=-potAB(V,particles,iStart,iEnd,0,T-1,N,T);
-            auto deltaSumAA=-potAA(V,particles,iStart,iEnd,0,T-1,N,T);
+            auto deltaSumAB=-potAB(V,particles,iStart,iEnd,0,T-1);
+            auto deltaSumAA=-potAA(V,particles,iStart,iEnd,0,T-1);
             
             generateRandomParticlesInBox(particles,iStart,iEnd,t0,t1,N ,D,  T, generator, lBox.data() );
-            deltaSumAB+=potAB(V,particles,iStart,iEnd,0,T-1,N,T);
-            deltaSumAA+=potAA(V,particles,iStart,iEnd,0,T-1,N,T);
+            deltaSumAB+=potAB(V,particles,iStart,iEnd,0,T-1);
+            deltaSumAA+=potAA(V,particles,iStart,iEnd,0,T-1);
 
             auto sumABNew = sumABOld +deltaSumAB;
             auto sumAANew = sumAAOld +deltaSumAA;
 
-            auto sumABNewCheck =  potAB(V,particles,rangeA[0],rangeA[1],0,T-1,N,T);
-            auto sumAANewCheck =  potAA(V,particles,rangeA[0],rangeA[1],0,T-1,N,T);
+            auto sumABNewCheck =  potAB(V,particles,rangeA[0],rangeA[1],0,T-1);
+            auto sumAANewCheck =  potAA(V,particles,rangeA[0],rangeA[1],0,T-1);
 
             ASSERT_NEAR(sumABNewCheck,sumABNew,1e-5);
             ASSERT_NEAR(sumAANewCheck,sumAANew,1e-5);

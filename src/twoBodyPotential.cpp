@@ -1,4 +1,4 @@
-#include "twoBodyDistancesDirect.h"
+#include "twoBodyPotential.h"
 #include "utils.h"
 #include <cassert>
 
@@ -6,9 +6,10 @@
 using Real = double;
 using namespace particleKernels;
 
-
 template<int dims>
-twoBodyPotential<dims>::twoBodyPotential(std::array<int,2> rangeA,std::array<int,2> rangeB, std::array<Real,dims> lBox_  ) 
+twoBodyPotential<dims>::twoBodyPotential(std::array<int,2> rangeA,std::array<int,2> rangeB, std::array<Real,dims> lBox_  ,
+std::array<int, 3> dimensions) :
+_dimensions(dimensions) 
 {
     iStartA = rangeA[0];
     iStartB = rangeB[0];
@@ -71,8 +72,24 @@ void twoBodyPotential<dims>::setPeriodic(std::array<Real,dims> lBox   )
 };
 
 
+template<int dims>
+void twoBodyPotential<dims>::setDimensions(std::array<int,3> dimensions   )
+{
+    _dimensions=dimensions;
+};
+
+template<int dims>
+void twoBodyPotential<dims>::setRangA( const std::array<int,2> & range   )
+{
+    rangeA=range;
+};
 
 
+template<int dims>
+void twoBodyPotential<dims>::setRangeB( const std::array<int,2> & range   )
+{
+    rangeB=range;
+};
 
 template class twoBodyPotential<3>;
 

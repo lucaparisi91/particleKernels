@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmain_lib.a  CMakeFiles/main_lib.dir/src/randomKernel.cpp.o CMakeFiles/main_lib.dir/src/cellNeighbourList.cpp.o CMakeFiles/main_lib.dir/src/timers.cpp.o
-/usr/bin/ranlib libmain_lib.a

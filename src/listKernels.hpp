@@ -1,5 +1,3 @@
-#include <cmath>
-
 
 
 template<int dimensions,class V_t>

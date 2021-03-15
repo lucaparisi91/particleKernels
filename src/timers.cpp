@@ -24,7 +24,7 @@ std::string timers::report() const
     for (auto it : _timers)
 
     {
-        ss << it.first <<": " << (it.second)->timeElapsed() << std::endl; 
+        ss << "Timer " <<it.first <<": " << (it.second)->timeElapsed() << std::endl; 
     }
     
     return ss.str();

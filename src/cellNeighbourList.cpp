@@ -8,11 +8,15 @@
 #include <algorithm>
 #include <memory.h>
 
+
+using namespace particleKernels;
+
 template<int d>
 inline int indexFortranStorage(const int* im, const int* sizes)
 {
     return sizes[0]*(  sizes[1]*im[2] + im[1] )  + im[0] ;
 }
+
 
 template<int d>
 void indicesFromIndexFortranStorage(int* im, int cellIndex,const int* sizes)
@@ -141,7 +145,6 @@ void updateListFortranStorage(
 {
 
     constexpr int buffer = 10;
-
 
     std::array<int ,dimensions> indexMultiple;
 

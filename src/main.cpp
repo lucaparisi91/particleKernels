@@ -3,7 +3,6 @@ using Real = double;
 #include<cstdlib>
 #include<iostream>
 #include <numeric>
-#include <mpi.h>
 #include <immintrin.h>
 #include "randomKernel.h"
 #include "omp.h"
@@ -144,7 +143,7 @@ template<class V_t>
 void pair_potential_sum( const Real *  data,int N , const V_t & V ,  double & sum)
 {
 
-#pragma omp for reduction(+:sum)
+
     for(int i=0;i<N;i++)
         for(int j=0;j<i;j++)
         {
@@ -160,7 +159,6 @@ void pair_potential_sum( const Real *  data,int N , const V_t & V ,  double & su
 template<class V_t>
 void potential_one_body_sum( const Real *  data,int N , const V_t & V ,  double & sum)
 {
-#pragma omp for reduction(+:sum)
     for(int i=0;i<N;i++)
         {
 

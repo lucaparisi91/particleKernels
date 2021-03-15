@@ -236,8 +236,8 @@ src/CMakeFiles/main.dir/clean:
 # Target rules for target tst/CMakeFiles/tst.dir
 
 # All Build rule for target.
-tst/CMakeFiles/tst.dir/all: src/CMakeFiles/particleKernels_lib.dir/all
 tst/CMakeFiles/tst.dir/all: tst/external/googletest/googletest/CMakeFiles/gtest.dir/all
+tst/CMakeFiles/tst.dir/all: src/CMakeFiles/particleKernels_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f tst/CMakeFiles/tst.dir/build.make tst/CMakeFiles/tst.dir/depend
 	$(MAKE) $(MAKESILENT) -f tst/CMakeFiles/tst.dir/build.make tst/CMakeFiles/tst.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/luca/source/particleKernels/build/CMakeFiles --progress-num=21,22,23,24,25,26 "Built target tst"

@@ -1,5 +1,6 @@
 #include "lattice.h"
 
+using namespace particleKernels;
 
 lattice::lattice(std::array<size_t,3>  shape, std::array<Real,3> lowerEdge, std::array<Real,3 > higherEdge,std::array<size_t,3> nGhosts) :
 _shape(shape),

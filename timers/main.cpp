@@ -7,6 +7,9 @@
 #include "timers.h"
 
 
+using namespace particleKernels;
+
+
 template<class testParticleData_t>
 void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
 {
@@ -15,10 +18,11 @@ void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
 
 
      std::cout << "Timing particle data containers" << std::endl;
-    
+
      Real cut_off=1;
     constexpr int D = 3;
-    Real density = 1e-3;
+    Real density = 1;
+
 
     Real l=std::pow(N/density,1./3);
 
@@ -55,14 +59,13 @@ void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
 
     utils::restrictToBox(positionsPBC,positions,0,N-1,N,leftEdge,lBox);
 
-    utils::gaussianInteraction gauss(2,1);
+    utils::gaussianInteractionWithCutOff gauss(2,1);
     utils::tetaInteraction teta(1,1);
-
 
 
     if (method == "direct")
     {
-        Real vCheck = utils::twoBodyDistancesIsotropicReduction<utils::gaussianInteraction,3>(positions,gauss,N,lBox);
+        Real vCheck = utils::twoBodyDistancesIsotropicReduction<utils::gaussianInteractionWithCutOff,3>(positions,gauss,N,lBox);
         std::cout << "Sum: " << vCheck << std::endl;
 
         for (int n=0;n<nTrials;n++)
@@ -71,12 +74,11 @@ void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
         int iStart=0;
         int iEnd=N-1;
 
-       
         utils::initRandom(positions,3,iStart,iEnd,N,generator,-l/2,l/2);
 
 
         START_TIMER("2bDistances") ;
-        Real vCheckUpdate = utils::twoBodyDistancesIsotropicReduction<utils::gaussianInteraction,3>(positions,gauss,N,lBox);
+        Real vCheckUpdate = utils::twoBodyDistancesIsotropicReduction<utils::gaussianInteractionWithCutOff,3>(positions,gauss,N,lBox);
         STOP_TIMER("2bDistances") ;
 
 
@@ -128,8 +130,21 @@ void timeTwoBodyPotential(std::string method, size_t N, int nTrials)
     free(positionsPBC);
 
     std::cout << timers::getInstance().report() << std::endl;
+    
+}
+
+
+void timeTwoBody()
+{
+    int N = 100;
+    constexpr int D = 3;
+    constexpr int T = 100;
+
+    double * positions = (Real *)aligned_alloc( 128, N*D*T*sizeof(Real)  );
+
 
 }
+
 
 
 int main(int argc,char** argv)
@@ -142,9 +157,9 @@ int main(int argc,char** argv)
     if ( argc > 2) N = atoi( argv[2] );
     if (argc > 3 ) nSamples=atoi( argv[3] );
 
-    if (method == "direct" or (method == "acc_index") )
+    if (method == "direct" )
         {
-            timeTwoBodyPotential<particleDataIndex>(method,N,nSamples);
+            timeTwoBodyPotential<particleData3D>(method,N,nSamples);
         }
     else if (method == "acc_copy")
         {

@@ -4,9 +4,12 @@
 #define TWO_BODY_DISTANCES_HPP
 #include "timers.h"
 
+namespace particleKernels
+{
 
 struct distancePolicy
 {
+
 
     inline auto static difference(const indexCellData & iCell, const indexCellData & jCell, int iSubCellIndex,int jSubCellIndex, const Real * particles, int d,int N,Real wrap) noexcept
     {
@@ -53,15 +56,14 @@ struct triangularLoopPolicy : public distancePolicy
 
 struct noParticleFilterPolicy : public distancePolicy
 {
-    static bool filterOut(int i, int j, int iStart, int iEnd)
+    static bool accept(int i, int j, int iStart, int iEnd) noexcept
     {
-        return false;
+        return true;
     }
 };
 
 
-
-template<class particleData_t,class V_t,class policity_t = triangularLoopPolicy>
+template<class particleData_t,class V_t,class policity_t = noParticleFilterPolicy>
 Real twoBodyDistancesIsotropicReduction( const particleData_t & container , const V_t & op, const Real * particles , int iStart, int iEnd , int N   )
 {
     Real sum2b=0;
@@ -69,46 +71,54 @@ Real twoBodyDistancesIsotropicReduction( const particleData_t & container , cons
     // loop over particles to be updated
 
 
-#pragma omp parallel default(none) shared(sum2b,container,op,particles,iStart,iEnd,N)
+
 {
     
     const auto & currentLattice = container.getLattice();
     const auto dimensions = currentLattice.dimensions();
 
-
-#pragma omp for reduction(+:sum2b)
+#pragma omp parallel for reduction(+:sum2b) schedule(runtime)
     for (int iParticle=iStart;iParticle<=iEnd;iParticle++)
     {
-        int iCell=container.cellIndex(iParticle);
+        int iICell=container.cellIndex(iParticle);
+        const auto & iCell = container[iICell];
+
         int iSubCell=container.subCellIndex(iParticle);
 
         //assert(iCell<currentLattice.extendedSize());
         //assert(iSubCell<container[iCell].size());
 
-
-        for (int j=0;j<currentLattice.nCellsNeighbourhood() ;j++)
+        for (int j=0;j<currentLattice. nCellsNeighbourhood() ;j++)
         {
-            int jCell=currentLattice.getNeighbour(iCell,j);
+            int iJCell=currentLattice.getNeighbour(iICell,j);
             //assert(jCell<currentLattice.extendedSize());
+            const auto & jCell = container[iJCell];
+
+            int nJcell=jCell.size();
+            std::array<Real,3> warp {currentLattice.wrap(iJCell,0),currentLattice.wrap(iJCell,1),currentLattice.wrap(iJCell,2)};
             
 
-            for (int jj=0;jj<container[jCell].nParticles();jj++)
+#pragma omp simd reduction(+:sum2b)
+            for (int jj=0;jj<nJcell;jj++)
             {
-                int jParticle=container[jCell].getParticleIndex(jj);
+                int jParticle=jCell.getParticleIndex(jj);
 
                 //assert(jParticle<N);
 
                 if (policity_t::accept(iParticle,jParticle,iStart,iEnd) )
                 {
                     Real r2=0;
-                    
 
-                    for (int d=0;d<dimensions;d++)
+
+                    for (int d=0;d<3;d++)
                     {
+                        
+                        Real diffd = policity_t::difference(iCell , jCell , iSubCell,jj, particles , d , N , warp[d] );
+                         
+                         
+                        
 
-                        Real diffd = policity_t::difference(container[iCell] , container[jCell] , iSubCell,jj, particles , d , N , currentLattice.wrap(jCell,d) );
-
-
+                        //Real diffd=particles[iParticle+d*N] - particles[jj + d*N];
 
                         //diffd=utils::differencePBC(diffd,currentLattice.lengthBox()[d],1./currentLattice.lengthBox()[d] );
                         
@@ -130,5 +140,5 @@ Real twoBodyDistancesIsotropicReduction( const particleData_t & container , cons
     return sum2b;
 }
 
-
+}
 #endif

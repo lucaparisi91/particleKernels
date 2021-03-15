@@ -7,6 +7,8 @@
 #include <cmath>
 #include <cassert>
 
+namespace particleKernels
+{
 
 using Real = double;
 
@@ -123,5 +125,5 @@ class lattice
 
     std::array<std::vector<Real> ,3    > _wrap;
 };
-
+}
 #endif

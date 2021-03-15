@@ -1,6 +1,10 @@
 #include "utils.h"
 #include <cmath>
 #include <cassert>
+
+namespace particleKernels
+{
+
 namespace utils
 {
 
@@ -44,3 +48,4 @@ namespace utils
 }
 
 };
+}

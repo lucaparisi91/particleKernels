@@ -1,1 +1,0 @@
-/usr/bin/c++   -fopenmp -O3 -DNDEBUG    -pg CMakeFiles/timers.dir/timers/main.cpp.o  -o timers  lib/libgtest.a libmain_lib.a 

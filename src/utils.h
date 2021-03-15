@@ -1,12 +1,12 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-
-
 using Real = double;
 #include <array>
 #include <random>
 
+namespace particleKernels
+{
 namespace utils
 {
      inline Real differencePBC(Real t, Real lBox, Real lBoxInverse ) {return ( t - std::round(t*lBoxInverse )*lBox);}
@@ -25,15 +25,14 @@ Real twoBodyDistancesIsotropicReduction(const __restrict Real * particles,const 
 {
     Real sum2b=0;
 
-#pragma omp parallel default(none) shared(sum2b,particles,op,N,lBox)
-{
     std::array<Real,dims> lBoxInverse;
 
     for(int d=0;d<dims;d++)
     {
         lBoxInverse[d]=1./lBox[d];
     }
-#pragma omp for reduction(+:sum2b)
+
+#pragma omp parallel for reduction(+:sum2b) schedule(runtime)
     for (int iParticle=0;iParticle<N;iParticle++)
     {   
         for (int jParticle=0;jParticle<iParticle;jParticle++)
@@ -51,7 +50,6 @@ Real twoBodyDistancesIsotropicReduction(const __restrict Real * particles,const 
 
         }
     }
-}
 
 return sum2b;
 
@@ -59,9 +57,9 @@ return sum2b;
 
 
 
-struct gaussianInteraction
+struct gaussianInteractionWithCutOff
 {
-    gaussianInteraction(Real alpha, Real cutOff) :
+    gaussianInteractionWithCutOff(Real alpha, Real cutOff) :
     _alpha(alpha),
     _cutOff(cutOff)
     {}
@@ -109,5 +107,6 @@ struct tetaInteraction
 };
 
 };
+}
 
 #endif

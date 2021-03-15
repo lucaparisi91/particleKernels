@@ -7,6 +7,9 @@
 #include "cellData.h"
 #include "cassert"
 
+namespace particleKernels
+{
+
 template<class T>
 class particleDataBase
 {
@@ -96,13 +99,6 @@ class particleData3D : public particleDataBase<particleCellData3d>
 
 };
 
-
-
-namespace utils
-{
-    Real differencePBC(Real t, Real lBox, Real lBoxInverse );
-
-};
-
+}
 
 #endif

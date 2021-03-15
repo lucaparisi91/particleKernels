@@ -8,6 +8,9 @@
 #include <algorithm>
 #include <memory.h>
 
+
+using namespace particleKernels;
+
 template<int d>
 inline int indexFortranStorage(const int* im, const int* sizes)
 {

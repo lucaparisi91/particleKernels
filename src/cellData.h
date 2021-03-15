@@ -1,5 +1,9 @@
 #include <vector>
 
+
+namespace particleKernels
+{
+
 struct cellData
 {
     virtual void updatePosition(int iSubCell,Real x,Real y , Real z){};
@@ -157,4 +161,5 @@ class particleCellData3d : public cellData
     index_t _nParticles; // number of particles containted in the box
 };
 
+};
 

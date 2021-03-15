@@ -1,5 +1,11 @@
+
+
 #include <vector>
 #include <array>
+#include <cmath>
+
+namespace particleKernels
+{
 
 using Real = double;
 
@@ -121,3 +127,5 @@ class simpleCellNeighbourList
 
 
 };
+
+}

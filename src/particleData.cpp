@@ -2,6 +2,8 @@
 #include <iostream>
 #include "utils.h"
 
+using namespace particleKernels;
+
 
 template<class T>
 particleDataBase<T>::particleDataBase(std::shared_ptr<lattice> lattice_) :
@@ -232,7 +234,7 @@ void particleDataBase<T>::checkPBCGhostCells()
 }
 
 
-template class particleDataBase<indexCellData>;
+//template class particleDataBase<indexCellData>;
 template class particleDataBase<particleCellData3d>;
 
 

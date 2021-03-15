@@ -1,1 +1,0 @@
-/opt/intel/oneapi/advisor/2021.1.1/bin64/advisor -collect dependencies -loop-call-count-limit=0 -instance-of-interest=0 -track-stack-variables -no-filter-by-scope -no-filter-reductions -project-dir /home/luca/source/particleKernels/timers/test --search-dir all=./ --search-dir src:p=../.. --search-dir all=./ -- /home/luca/source/particleKernels/timers/timers acc_copy 10000 1000

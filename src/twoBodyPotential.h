@@ -29,7 +29,7 @@ struct twoBodyPotential
     Real operator()(const V_t & V,const Real * positions, int i1, int i2, int t0 , int t1) const;
 
     template<class V_t>
-    void addForce(const V_t & V,const Real * positions,Real * forces, int i1 , int i2, int t0 , int t1) const;
+    void addForce(const V_t & V,const Real * positions,Real * forces, int i1 , int i2, int t0 , int t1,Real multiplicationFactor=1) const;
 
 
     bool containedInSetA(int i1, int i2) const;

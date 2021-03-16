@@ -1,6 +1,7 @@
 
 using Real = double;
 
+
 template<int dims,class V_t>
 void addTwoBodyIsotropicForcesRectangular(
     const V_t & V,
@@ -11,7 +12,8 @@ void addTwoBodyIsotropicForcesRectangular(
      int t0 , int t1, // time range
      int N, // total number of particles 
      int D, // length of the second dimension of the array( usually equal to dims)
-     int T, // total number of time slices
+     int T, // total number of time slices,
+     int NF, int DF , int TF, // timensions of the force array
      const Real * lBox
      )
 {
@@ -49,8 +51,8 @@ void addTwoBodyIsotropicForcesRectangular(
                 
                 for(int d=0;d<dims;d++)
                 {
-                    forces[iParticle + d*N + t*N*D ]+=dVdr*diff[d]*rInverse;
-                    forces[jParticle + d*N + t*N*D ]-=dVdr*diff[d]*rInverse;
+                    forces[iParticle + d*NF + t*N*DF ]+=dVdr*diff[d]*rInverse;
+                    forces[jParticle + d*NF + t*NF*DF ]-=dVdr*diff[d]*rInverse;
                 }
              }
         }
@@ -68,7 +70,8 @@ void addTwoBodyIsotropicForcesTriangular(
      int t0 , int t1, // time range
      int N, // total number of particles
      int D, // max number of dimensions 
-     int T, // total number of time slices
+     int T, // total number of time slices,
+     int NF, int DF, int TF , // dimensions of the 3d force array
      const Real * lBox
      )
 {
@@ -106,8 +109,8 @@ void addTwoBodyIsotropicForcesTriangular(
                 
                 for(int d=0;d<dims;d++)
                 {
-                    forces[iParticle + d*N + t*N*D ]+=dVdr*diff[d]*rInverse;
-                    forces[jParticle + d*N + t*N*D ]-=dVdr*diff[d]*rInverse;
+                    forces[iParticle + d*NF + t*NF*DF ]+=dVdr*diff[d]*rInverse;
+                    forces[jParticle + d*NF + t*NF*DF ]-=dVdr*diff[d]*rInverse;
                 }
              }
         }
@@ -275,6 +278,10 @@ int i1 , int i2, // particle range updated
     int D= _dimensions[1];
     int T= _dimensions[2];
     
+    int NF= _dimensions[0];
+    int DF= _dimensions[1];
+    int TF= _dimensions[2];
+   
     
     if ( not isTriangular )
     {
@@ -283,11 +290,11 @@ int i1 , int i2, // particle range updated
         
         if (isInA)
         {
-            addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,_lBox.data());
+            addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,NF,DF,TF,_lBox.data());
         }
         else if (isInB)
         {
-           addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,_lBox.data());
+           addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,NF,DF,TF,_lBox.data());
         }
 
     }
@@ -297,8 +304,8 @@ int i1 , int i2, // particle range updated
 
         if (isInA)
         {
-            addTwoBodyIsotropicForcesTriangular<dims,V_t>(V,positions,forces,i1,i2,iStartA,t0 , t1,N,D,T,_lBox.data());
-             addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,_lBox.data() );
+            addTwoBodyIsotropicForcesTriangular<dims,V_t>(V,positions,forces,i1,i2,iStartA,t0 , t1,N,D,T,NF,DF,TF,_lBox.data());
+             addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,NF,DF,TF,_lBox.data() );
         }
         else
         {

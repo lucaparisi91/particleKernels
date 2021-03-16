@@ -127,10 +127,9 @@ TEST(twoBodyPotential, evaluate)
             ASSERT_NEAR(sumABNewCheck,sumABNew,1e-5);
             ASSERT_NEAR(sumAANewCheck,sumAANew,1e-5);
 
+            
             sumAAOld=sumAANewCheck;
             sumABOld=sumABNewCheck;
-            
-
            
 
     }

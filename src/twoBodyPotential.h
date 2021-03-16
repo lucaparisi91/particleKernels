@@ -21,7 +21,8 @@ struct twoBodyPotential
     void setRangA(const  std::array<int,2> & rangeA_);
     void setRangeB( const std::array<int,2> &  rangeB_);
     void setDimensions( std::array<int,3> dimensions);
-    
+    void setParticleDimensions( std::array<int,3> dimensions);
+    void setForceDimensions( std::array<int,3> dimensions);
     
 
     template<class V_t>
@@ -41,7 +42,7 @@ struct twoBodyPotential
     std::array<int,2> rangeA;
     std::array<int,2> rangeB;
     std::array<int,3> _dimensions;
-    
+    std::array<int,3> _forceDimensions;
     int iStartA, iStartB, iEndA,iEndB;
     std::array<Real,dimensions> _lBox;
     bool isTriangular=false;

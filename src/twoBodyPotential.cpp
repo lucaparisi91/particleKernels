@@ -73,9 +73,23 @@ void twoBodyPotential<dims>::setPeriodic(std::array<Real,dims> lBox   )
 
 
 template<int dims>
-void twoBodyPotential<dims>::setDimensions(std::array<int,3> dimensions   )
+void twoBodyPotential<dims>::setParticleDimensions(std::array<int,3> dimensions   )
 {
     _dimensions=dimensions;
+};
+
+template<int dims>
+void twoBodyPotential<dims>::setForceDimensions(std::array<int,3> dimensions   )
+{
+    _forceDimensions=dimensions;
+};
+
+
+template<int dims>
+void twoBodyPotential<dims>::setDimensions(std::array<int,3> dimensions   )
+{
+    setParticleDimensions(dimensions);
+    setForceDimensions(dimensions); 
 };
 
 template<int dims>

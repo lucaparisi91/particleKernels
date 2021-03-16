@@ -288,17 +288,17 @@ int i1 , int i2, // particle range updated
     int D= _dimensions[1];
     int T= _dimensions[2];
     
-    int NF= _dimensions[0];
-    int DF= _dimensions[1];
-    int TF= _dimensions[2];
+    int NF= _forceDimensions[0];
+    int DF= _forceDimensions[1];
+    int TF= _forceDimensions[2];
 
-
+    
     int iStartA = rangeA[0];
     int iStartB = rangeB[0];
 
     int iEndA = rangeA[1];
     int iEndB = rangeB[1];
-    
+
    
     
     if ( not isTriangular )

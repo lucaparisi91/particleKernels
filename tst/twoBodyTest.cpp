@@ -39,7 +39,7 @@ TEST(twoBodyPotential, evaluate)
     twoBodyPotential<D> potAB(rangeA,rangeB,lBox,{N,D,T});
     twoBodyPotential<D> potAA(rangeA,rangeA,lBox,{N,D,T});
 
-    potAA.setRangA({0,N/2});
+    potAA.setRangeA({0,N/2});
 
     gaussianPotential V(1);
 

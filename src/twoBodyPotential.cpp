@@ -11,14 +11,20 @@ twoBodyPotential<dims>::twoBodyPotential(std::array<int,2> rangeA,std::array<int
 std::array<int, 3> dimensions) :
 _dimensions(dimensions) 
 {
-    iStartA = rangeA[0];
-    iStartB = rangeB[0];
-    
-    iEndA = rangeA[1];
-    iEndB = rangeB[1];
+    setRangeA(rangeA);
+    setRangeB(rangeB);
 
+    
     setPeriodic(lBox_);
 
+    int iStartA=rangeA[0];
+    int iStartB=rangeB[0];
+
+    int iEndA=rangeA[1];
+    int iEndB=rangeB[1];
+
+
+    
 
     // check that the two ranges do not intersect
     assert(iStartA<=iEndA);
@@ -51,14 +57,15 @@ _dimensions(dimensions)
 template<int dims>
 bool twoBodyPotential<dims>::containedInSetA(int i1,int i2) const
 {
-    return (i1 >= iStartA) and (i2 <=iEndA);
+    return (i1 >= rangeA[0]) and (i2 <=rangeA[1]);
 }
 
 template<int dims>
 bool twoBodyPotential<dims>::containedInSetB(int i1,int i2) const
 {
-    return (i1 >= iStartA) and (i2 <=iEndB);
+    return (i1 >= rangeB[0]) and (i2 <=rangeB[1]);
 };
+
 
 template<int dims>
 void twoBodyPotential<dims>::setPeriodic(std::array<Real,dims> lBox   )
@@ -93,7 +100,7 @@ void twoBodyPotential<dims>::setDimensions(std::array<int,3> dimensions   )
 };
 
 template<int dims>
-void twoBodyPotential<dims>::setRangA( const std::array<int,2> & range   )
+void twoBodyPotential<dims>::setRangeA( const std::array<int,2> & range   )
 {
     rangeA=range;
 };

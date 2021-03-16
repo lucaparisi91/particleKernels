@@ -226,6 +226,16 @@ int i1 , int i2, // particle range updated
     int D = _dimensions[1];
     int T = _dimensions[2];
 
+    int iStartA = rangeA[0];
+    int iStartB = rangeB[0];
+
+    int iEndA = rangeA[1];
+    int iEndB = rangeB[1];
+
+
+
+    
+
     if ( not isTriangular )
     {
         bool isInA = containedInSetA(i1,i2);
@@ -281,6 +291,14 @@ int i1 , int i2, // particle range updated
     int NF= _dimensions[0];
     int DF= _dimensions[1];
     int TF= _dimensions[2];
+
+
+    int iStartA = rangeA[0];
+    int iStartB = rangeB[0];
+
+    int iEndA = rangeA[1];
+    int iEndB = rangeB[1];
+    
    
     
     if ( not isTriangular )

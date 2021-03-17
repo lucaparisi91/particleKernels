@@ -18,8 +18,9 @@ struct twoBodyPotential
          );
 
     void setPeriodic( std::array<Real,dims> lBox);
-    void setRangeA(const  std::array<int,2> & rangeA_);
-    void setRangeB( const std::array<int,2> &  rangeB_);
+    void setRange(const  std::array<int,2> & rangeA_, const std::array<int,2> &  rangeB_);
+    
+
     void setDimensions( std::array<int,3> dimensions);
     void setParticleDimensions( std::array<int,3> dimensions);
     void setForceDimensions( std::array<int,3> dimensions);
@@ -41,7 +42,7 @@ struct twoBodyPotential
 
     void postUpdateRange();
 
-    
+
     bool periodic=false;
     std::array<int,2> rangeA;
     std::array<int,2> rangeB;

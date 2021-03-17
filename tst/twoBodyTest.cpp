@@ -47,7 +47,7 @@ TEST(twoBodyPotential, evaluate)
 
 
 
-    potAA.setRangeA({0,N/2});
+    potAA.setRange(rangeA,rangeA);
 
     gaussianPotential V(1);
 
@@ -170,7 +170,7 @@ TEST(twoBodyPotential, evaluate)
     potBB.addForce(V,particles,forces,rangeB[0],rangeB[1],0,T-1);
     potAB.addForce(V,particles,forces,rangeA[0],rangeB[1],0,T-1);
     potCC.addForce(V,particles,forcesCheck,rangeA[0],rangeB[1],0,T-1);
-    
+
 
     for(int i=0;i<N*D*T;i++)
     {

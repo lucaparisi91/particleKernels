@@ -10,16 +10,13 @@ using namespace particleKernels;
 template<int dims>
 twoBodyPotential<dims>::twoBodyPotential(std::array<int,2> rangeA_,std::array<int,2> rangeB_, std::array<Real,dims> lBox_  ,
 std::array<int, 3> dimensions) :
-_dimensions(dimensions),
-rangeA(rangeA_),
-rangeB(rangeB_)
+_dimensions(dimensions)
 {
     setPeriodic(lBox_);
     setDimensions(dimensions);
 
-    setRangeA(rangeA_);
-    setRangeB(rangeB_);
-    
+    setRange(rangeA_,rangeB_);
+
 };
 
 
@@ -35,8 +32,7 @@ void twoBodyPotential<dims>::postUpdateRange()
     // check that the two ranges do not intersect
     assert(iStartA<=iEndA);
     assert(iStartB<=iEndB);
-
-
+    
     if ((iStartA == iStartB) and (iEndA == iEndB) )
     {
         isTriangular=true;
@@ -107,17 +103,11 @@ void twoBodyPotential<dims>::setDimensions(std::array<int,3> dimensions   )
 };
 
 template<int dims>
-void twoBodyPotential<dims>::setRangeA( const std::array<int,2> & range   )
+void twoBodyPotential<dims>::setRange( const std::array<int,2> & rangeA_,const std::array<int,2> & rangeB_   )
 {
-    rangeA=range;
-    postUpdateRange();
-};
+    rangeA=rangeA_;
+    rangeB=rangeB_;
 
-
-template<int dims>
-void twoBodyPotential<dims>::setRangeB( const std::array<int,2> & range   )
-{
-    rangeB=range;
     postUpdateRange();
 };
 

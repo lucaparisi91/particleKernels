@@ -36,8 +36,12 @@ struct twoBodyPotential
     bool containedInSetB(int i1, int i2) const;
 
 
+
     private:
 
+    void postUpdateRange();
+
+    
     bool periodic=false;
     std::array<int,2> rangeA;
     std::array<int,2> rangeB;

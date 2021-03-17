@@ -171,6 +171,7 @@ TEST(twoBodyPotential, evaluate)
     potAB.addForce(V,particles,forces,rangeA[0],rangeB[1],0,T-1);
     potCC.addForce(V,particles,forcesCheck,rangeA[0],rangeB[1],0,T-1);
     
+
     for(int i=0;i<N*D*T;i++)
     {
         ASSERT_NEAR(forcesCheck[i],forces[i],1e-6);

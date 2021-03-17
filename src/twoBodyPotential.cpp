@@ -6,35 +6,40 @@
 using Real = double;
 using namespace particleKernels;
 
-template<int dims>
-twoBodyPotential<dims>::twoBodyPotential(std::array<int,2> rangeA,std::array<int,2> rangeB, std::array<Real,dims> lBox_  ,
-std::array<int, 3> dimensions) :
-_dimensions(dimensions) 
-{
-    setRangeA(rangeA);
-    setRangeB(rangeB);
 
-    
+template<int dims>
+twoBodyPotential<dims>::twoBodyPotential(std::array<int,2> rangeA_,std::array<int,2> rangeB_, std::array<Real,dims> lBox_  ,
+std::array<int, 3> dimensions) :
+_dimensions(dimensions),
+rangeA(rangeA_),
+rangeB(rangeB_)
+{
     setPeriodic(lBox_);
     setDimensions(dimensions);
 
+    setRangeA(rangeA_);
+    setRangeB(rangeB_);
+    
+};
+
+
+template<int dims>
+void twoBodyPotential<dims>::postUpdateRange()
+{
     int iStartA=rangeA[0];
     int iStartB=rangeB[0];
 
     int iEndA=rangeA[1];
     int iEndB=rangeB[1];
-
-
-    
-
+ 
     // check that the two ranges do not intersect
     assert(iStartA<=iEndA);
     assert(iStartB<=iEndB);
-            
+
+
     if ((iStartA == iStartB) and (iEndA == iEndB) )
     {
-        isTriangular=true;        
-
+        isTriangular=true;
     }
     else
     {
@@ -53,7 +58,8 @@ _dimensions(dimensions)
         }
     }
 
-};
+}
+
 
 template<int dims>
 bool twoBodyPotential<dims>::containedInSetA(int i1,int i2) const
@@ -104,6 +110,7 @@ template<int dims>
 void twoBodyPotential<dims>::setRangeA( const std::array<int,2> & range   )
 {
     rangeA=range;
+    postUpdateRange();
 };
 
 
@@ -111,8 +118,8 @@ template<int dims>
 void twoBodyPotential<dims>::setRangeB( const std::array<int,2> & range   )
 {
     rangeB=range;
+    postUpdateRange();
 };
 
 template class twoBodyPotential<3>;
-
 

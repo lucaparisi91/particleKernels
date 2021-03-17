@@ -16,6 +16,7 @@ _dimensions(dimensions)
 
     
     setPeriodic(lBox_);
+    setDimensions(dimensions);
 
     int iStartA=rangeA[0];
     int iStartB=rangeB[0];

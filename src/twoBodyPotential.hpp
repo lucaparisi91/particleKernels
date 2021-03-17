@@ -234,45 +234,38 @@ int i1 , int i2, // particle range updated
     int iEndA = rangeA[1];
     int iEndB = rangeB[1];
 
-
-
-    
+    Real sum=0;
 
     if ( not isTriangular )
     {
-        bool isInA = containedInSetA(i1,i2);
-        bool isInB = containedInSetB(i1,i2);
-        
-        if (isInA)
-        {
-            return evaluateTwoBodyRectangular<dims,V_t>(V,positions,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,_lBox.data());
-        }
-        else if (isInB)
-        {
-           return evaluateTwoBodyRectangular<dims,V_t>(V,positions,i1,i2,iStartA,iEndA,t0 , t1,N,D,T,_lBox.data());
-        }
+        int iA1= std::min(   std::max(i1,rangeA[0]) , rangeA[1] + 1 );
+        int iA2= std::max(  std::min(i2,rangeA[1] ), rangeA[0]);
 
-        return 0;
+        int iB1= std::min( std::max(i1,rangeB[0]) , rangeB[0] );
+        int iB2= std::max( std::min(i2,rangeB[1]) , rangeB[0] -1 );
+
+        sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,iA1,iA2,rangeB[0],iB1-1,t0 , t1,N,D,T,_lBox.data());
+        sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,iA1,iA2,iB2+1,rangeB[1],t0 , t1,N,D,T,_lBox.data());
+        sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,iB1,iB2,rangeA[0],iA1-1,t0 , t1,N,D,T,_lBox.data());
+        sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,iB1,iB2,iA2+1,rangeA[1],t0 , t1,N,D,T,_lBox.data());
+
+
+        sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,iB1,iB2,iA1,iA2,t0 , t1,N,D,T,_lBox.data());
+        
     }
     else
     {
-        bool isInA = containedInSetA(i1,i2);
+        // interset the range of change particles [i1:i2] with rangeA
+        i1=std::max(rangeA[0],i1);
+        i2=std::min(rangeA[1],i2);
 
-
-        if (isInA)
-        {
-            auto sum = evaluateTwoBodyTriangular<dims,V_t>(V,positions,i1,i2,iStartA,t0 , t1,N,D,T,_lBox.data());
-            sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,_lBox.data() );
-
-
-            return sum;
-        }
-        else
-        {
-            return 0;
-        }
+        sum+= evaluateTwoBodyTriangular<dims,V_t>(V,positions,i1,i2,iStartA,t0 , t1,N,D,T,_lBox.data());
+        sum+=evaluateTwoBodyRectangular<dims,V_t>(V,positions,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,_lBox.data() );
         
     }
+
+    return sum;
+
 }
 
 
@@ -306,32 +299,30 @@ int i1 , int i2, // particle range updated
     
     if ( not isTriangular )
     {
-        bool isInA = containedInSetA(i1,i2);
-        bool isInB = containedInSetB(i1,i2);
+        // intersect the range of updated particles with rangeA and range B
+        int iA1= std::min(   std::max(i1,rangeA[0]) , rangeA[1] + 1 );
+        int iA2= std::max(  std::min(i2,rangeA[1] ), rangeA[0]);
+
+        int iB1= std::min( std::max(i1,rangeB[0]) , rangeB[0] );
+        int iB2= std::max( std::min(i2,rangeB[1]) , rangeB[0] -1 );
+
+        // particle pairs AB form 5 rectangulars pair ranges. Compute forces in each particle pair subdomain
+        addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,iA1,iA2,rangeB[0],iB1-1,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
+        addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,iA1,iA2,iB2+1,rangeB[1],t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
+        addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,iB1,iB2,rangeA[0],iA1-1,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
+        addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,iB1,iB2,iA2+1,rangeA[1],t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
+
+        addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,iB1,iB2,iA1,iA2,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
         
-        if (isInA)
-        {
-            addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
-        }
-        else if (isInB)
-        {
-           addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i1,i2,iStartB,iEndB,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
-        }
 
     }
     else
     {
-        bool isInA = containedInSetA(i1,i2);
+        i1=std::max(rangeA[0],i1);
+        i2=std::min(rangeA[1],i2);
 
-        if (isInA)
-        {
-            addTwoBodyIsotropicForcesTriangular<dims,V_t>(V,positions,forces,i1,i2,iStartA,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
-             addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,NF,DF,TF,_lBox.data() ,C);
-        }
-        else
-        {
-            
-        }
+        addTwoBodyIsotropicForcesTriangular<dims,V_t>(V,positions,forces,i1,i2,iStartA,t0 , t1,N,D,T,NF,DF,TF,_lBox.data(),C);
+        addTwoBodyIsotropicForcesRectangular<dims,V_t>(V,positions,forces,i2+1,iEndA,i1,i2,t0 , t1,N,D,T,NF,DF,TF,_lBox.data() ,C);
         
     }
 }

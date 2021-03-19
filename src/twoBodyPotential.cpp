@@ -112,4 +112,7 @@ void twoBodyPotential<dims>::setRange( const std::array<int,2> & rangeA_,const s
 };
 
 template class twoBodyPotential<3>;
+template class twoBodyPotential<2>;
+template class twoBodyPotential<1>;
+
 

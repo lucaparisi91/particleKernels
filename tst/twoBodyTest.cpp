@@ -14,9 +14,17 @@ TEST(twoBodyPotential, evaluate)
     const int N=100;
     const int T=10;
 
-    constexpr int D = 3;
+    constexpr int D = 1;
     Real l =1;
-    std::array<Real,3> lBox{l,l,l};
+
+
+    std::array<Real,D> lBox;
+
+    for(int d=0;d<D;d++)
+    {
+        lBox[d]=l;
+    }
+    
 
     double * particles = new double[N*D*T];
     double * forces = new double[N*D*T];

@@ -10,7 +10,7 @@ struct twoBodyPotential
 {
     using Real=double;
     static const int dimensions = dims;
-
+    
     twoBodyPotential(
         std::array<int,2> rangeA,std::array<int,2> rangeB, // particle index range for set A and B. If A=B particles are consider indistinguishible
         std::array<Real,dims> lBox_ , // length of the box

@@ -1,6 +1,6 @@
 #include <random>
 #include <random>
-#include "mkl/mkl_vsl.h"
+#include "mkl_vsl.h"
 
 class randomSTLKernel
 {   

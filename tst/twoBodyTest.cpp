@@ -24,7 +24,6 @@ TEST(twoBodyPotential, evaluate)
     {
         lBox[d]=l;
     }
-    
 
     double * particles = new double[N*D*T];
     double * forces = new double[N*D*T];
